@@ -1,0 +1,79 @@
+
+.tabBar.data-v-3bd8e2f8{  
+	width: 100%;
+	position: fixed;
+	padding-top: 15rpx;
+	bottom: 0;
+	z-index: 999;
+	padding-bottom: 0;
+	padding-bottom: constant(safe-area-inset-bottom);
+	padding-bottom: env(safe-area-inset-bottom);
+}
+.tabBar>view.data-v-3bd8e2f8{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+}
+.tabbarimg.data-v-3bd8e2f8{
+	width: 52rpx;
+	height: 52rpx;
+}
+.tabbartxt.data-v-3bd8e2f8{
+	font-size: 26rpx;
+	font-weight: 500;
+	padding: 8rpx 0;
+}
+.tabbartxt.data-v-3bd8e2f8{
+ color: #fff;
+}
+.nav.data-v-3bd8e2f8{
+ opacity: 0.7;
+}
+.nav_activt.data-v-3bd8e2f8{
+ opacity: 1;
+}
+
+
+
+page.data-v-18b36ab7 {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+.content.data-v-18b36ab7 {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+.inpus-textarder.data-v-18b36ab7 {
+	width: 609rpx;
+	height: 250rpx;
+	background: #FFFFFF;  
+	border: 1px solid #DEDEDE;
+	border-radius: 8rpx;
+}
+.inpuus.data-v-18b36ab7 {
+	width: 609rpx;
+	height: 73rpx;
+	background: #FFFFFF;
+	border: 1px solid #DEDEDE;
+	border-radius: 8rpx;
+}
+.okbtn.data-v-18b36ab7{
+	width: 690rpx;
+	height: 80rpx;
+	background: #79C2EF;
+	border-radius: 40rpx;
+	font-size: 30rpx;
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 80rpx;
+	text-align: center;
+	margin: 0 30rpx 0;
+	position: absolute;
+	bottom: 150rpx;
+}
+

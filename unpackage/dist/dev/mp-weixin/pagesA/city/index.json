@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "选择城市",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "ss-select-city": "/components/ss-select-city/index"
+  }
+}

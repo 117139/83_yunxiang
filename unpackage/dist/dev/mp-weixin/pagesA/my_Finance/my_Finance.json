@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "财务记录",
+  "enablePullDownRefresh": true,
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {}
+}

@@ -1,0 +1,395 @@
+<template>
+	<view>
+		<view class="box">
+			<Recommend :shuju='shuju'></Recommend>
+			
+			<view class="xxbox dis_flex_c ju_a">
+				<view class="dis_flex ju_b aic">
+					<view class="xxtitstyle">出发时间</view>
+					<!-- <view class="dis_flex aic" @tap="toggleTab()">
+						<text class="cfsjtime">{{time}}</text>
+						<image class="intoimg" :src="getimg_fuc('/static_xcx/index/into.png')" mode="aspectFit"></image>
+					</view> -->
+					
+					
+					
+					 <picker class="dis_flex aic" mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
+						<text class="cfsjtime">{{date}}</text>
+						<image class="intoimg" :src="getimg_fuc('/static_xcx/index/into.png')" mode="aspectFit"></image>  
+					</picker>
+					
+					
+					
+				</view>
+				<view class="dis_flex ju_b aic">
+					<view class="xxtitstyle">数量</view>
+					<!-- <view class="numbox dis_flex aic">
+						<view style="border-right: 1rpx solid #999999;" @click="numval--">-</view>
+						<input type="text" value="" v-model="numval"/>
+						<view style="border-left: 1rpx solid #999999;" @click="numval++">+</view>
+					</view> -->
+					
+					<view class="shoppingNumber flex align-items-center ">
+						<label class="minute"  @click="jian">-</label>
+						<input class="input" v-model="numval" />
+						<label class="add" @click="numvals">+</label>
+					</view>
+					
+				</view>
+				<view class="dis_flex ju_b aic">
+					<view class="xxtitstyle">金额合计</view>
+					<view class="g_price">
+						<text>￥</text>
+						<text class="big">
+							{{monder}}
+						</text>
+					</view>
+				</view>
+			</view>
+			
+			<view class="xxbox xxbox2">
+				<view  class="" v-for="arr,index in shuju.more_content_arr" :key="index">
+					<text> {{arr.title}}</text>
+					<text> {{arr.content}}</text>
+				</view>
+			</view>
+			
+		</view>
+		
+		<view class="agree dis_flex ju_c">
+			<image v-show="showxz" @click='showxz=!showxz' class="agreeimg" :src="getimg_fuc('/static_xcx/index/agreeimg.png')" mode="aspectFit"></image>
+			<view v-show="!showxz" @click='showxz=!showxz' style="width: 30rpx;height: 30rpx;border: 2rpx solid #666666;border-radius: 50%;"></view>
+			<text style="padding-left: 17rpx;">我同意</text><text class="gofwxy" @click='tiaozhuan' data-url='/pagesA/kefu/kefu?id=7' :data-shifou='true'>服务协议</text>
+		</view>
+		
+		<view class="okbtnbox">
+			<view class="okbtn" @click='tiaozhuan' data-url='../pay/pay' :data-shifou='false'>
+				确认订单
+			</view>
+		</view>
+		
+		
+		<!-- <yu-datetime-picker
+		    ref="dateTime"
+		    startYear="2015"
+		    value="2019-11-10 08:30:01"
+		    :isAll="false"
+		    :current="false"
+		    @confirm="onConfirm">
+		</yu-datetime-picker> -->
+		
+		<yu-datetime-picker style="" @confirm="onConfirm" startYear="2015" ref="dateTime" value="2019-11-10 08:30:01" :isAll="false" :current="false"></yu-datetime-picker>
+
+		
+		
+	</view>
+</template>
+
+<script>
+	// import yuDatetimePicker from "@/components/yu-datetime-picker/yu-datetime-picker.vue"
+	// box
+	import api from '../../components/url.js';
+	   import service from '../../service.js';
+	// 底部  tabbar
+	// import Tabbar from '../../components/tabBar/tabBar.vue'
+	var that
+	import {
+		mapState,
+		mapMutations
+	} from 'vuex'
+	import Recommend from "../../components/recommend/recommend.vue"
+	import Price from "../../components/price/price.vue"
+	export default {
+		components: {
+			Recommend,
+			Price,
+			// yuDatetimePicker
+		},
+		data() {
+			const currentDate = this.getDate({
+				format: true
+			})
+			return {
+				shuju:'',
+				date: currentDate,
+				id:'',
+				showxz: true,
+				numval: 1,
+				time: '请选择',
+				monder:'',
+			}
+		},
+		onReady() {
+		},
+		onLoad(option) {
+			that=this
+			console.log(option)
+			that.id=option.id
+			that.getdatas()
+			
+		},
+		computed: {
+			...mapState(['hasLogin', 'forcedLogin', 'userName', 'userinfo']),
+			startDate() {
+				return this.getDate('start');
+			},
+			endDate() {
+				return this.getDate('end');
+			}
+		},
+		methods: {
+			...mapMutations(['logout', 'login']),
+			getimg_fuc(img) {
+				return api.getimg(img)
+			},
+			tiaozhuan(e) {
+				return api.tiaozhuan(e)
+			
+			},
+			getdatas() {
+				// console.log(that.id)
+				var data = {
+					id: that.id,
+				}
+				service.P_post('info/activity_make', data).then(res => {
+					console.log(res)
+					if (res.code == 1) {
+						that.shuju = res.data
+						console.log(that.shuju)
+						that.monder=parseInt(that.shuju.price) * parseInt(that.numval)
+						// that.user_shou = res.data.user.collection
+						// console.log(that.user_shou, 'that.user_shouthat.user_shouthat.user_shou')
+					} else {
+			
+						// that.$refs.htmlLoading.htmlReset_fuc(1)
+						if (res.msg) {
+							uni.showToast({
+								icon: 'none',
+								title: res.msg
+							})
+						} else {
+							uni.showToast({
+								icon: 'none',
+								title: '操作失败'
+							})
+						}
+					}
+				}).catch(e => {
+			
+					console.log(e)
+					uni.showToast({
+						icon: 'none',
+						title: '获取数据失败'
+					})
+				})
+			},
+			toggleTab(item, index) {  
+				this.$refs.dateTime.show();  
+			},  
+			onConfirm(val) {
+				that = this
+				console.log(val); 
+				that.time = val.selectArr[0]+'-'+ val.selectArr[1]+'-'+val.selectArr[2]
+				// that.time = val.selectArr.[1]+ '-' +val.selectArr.[2]+'-'+val.selectArr.[3]
+			},
+			 bindDateChange: function(e) {
+				this.date = e.target.value
+			},
+			 getDate(type) {
+				const date = new Date();
+				let year = date.getFullYear();
+				let month = date.getMonth() + 1;
+				let day = date.getDate();
+	
+				if (type === 'start') {
+					year = year - 60;
+				} else if (type === 'end') {
+					year = year + 2;
+				}
+				month = month > 9 ? month : '0' + month;;
+				day = day > 9 ? day : '0' + day;
+				return `${year}-${month}-${day}`;
+			},
+			jian(){
+				if (this.numval > 1) {
+					this.numval--
+					that.getdatas()
+				} else {
+					uni.showToast({
+						title: '再减就没有商品啦',
+						icon: 'none',
+					});
+				}
+			},
+			numvals() {
+				that.numval++
+				that.getdatas()
+			}
+		}
+	}
+</script>
+
+<style scoped>
+	 /* 数量加减 */
+	 .shoppingNumber {
+	 	width: 200upx;
+	 	height: 50upx;
+	 	border: 1px solid #999999;
+	 	border-radius: 12upx;
+	 	justify-content: space-between;
+	 }
+	 /* 减去商品数量 */
+	 .minute {
+	 	width: 55rpx;
+	 	text-align: center;
+	 	line-height: 50rpx;
+	 	font-size: 40rpx;
+	 	border-right: 1px solid #929292;
+	 }
+	 .input {
+	 	width: 55rpx;
+	 	height: 50upx;
+	 	text-align: center;
+	 	font-size: 25rpx;
+	 	min-height: 0;
+	 	/* margin-top: -5rpx; */
+	 }
+	 /* 添加商品数量 */
+	 .add {
+	 	width: 55rpx;
+	 	border-left: 1px solid #929292;
+	 	line-height: 50rpx;
+	 	text-align: center;
+	 	font-size: 35rpx;
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	.box{
+		padding: 0 30rpx;
+	}
+	.intoimg{
+		width: 30rpx;
+		height: 30rpx;
+		vertical-align: middle;
+		margin-left: 18rpx;
+	}
+	.cfsjtime{
+		vertical-align: middle;
+		font-size: 28rpx;
+		font-weight: bold;
+		color: #79C2EF;
+	}
+	.xxtitstyle{
+		font-size: 28rpx;
+		font-weight: 400;
+		color: #666666;
+	}
+	.xxbox{
+		margin-top: 26rpx;
+		padding: 0 19rpx;
+		height: 255rpx;
+		box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+		border-radius: 8rpx;
+	}
+	.xxbox2{
+		height: auto;
+		padding: 35rpx 19rpx;
+	}
+	.remindertit{
+		font-size: 28rpx;
+		font-weight: bold;
+		color: #1961B6;
+		line-height: 48rpx;
+	}
+	.remindertxt{
+		font-size: 24rpx;
+		font-weight: 400;
+		color: #333333;
+		line-height: 48rpx;
+	}
+	.agree{
+		width: 100%;
+		text-align: center;
+		position: fixed;
+		bottom: 140rpx;
+		padding-bottom: constant(safe-area-inset-bottom);
+		padding-bottom: env(safe-area-inset-bottom);
+	}
+	.agree text{
+		font-size: 24rpx;
+		font-weight: bold;
+		color: #666666;
+	}
+	.agreeimg{
+		width: 30rpx;
+		height: 30rpx;
+		vertical-align: middle;
+	}
+	.gofwxy {
+		text-decoration:underline;
+	}
+	.okbtnbox{
+		width: 100%;
+		position: fixed;
+		padding-top: 20rpx;
+		bottom: 0;
+		z-index: 1;
+		padding-bottom: 0;
+		padding-bottom: constant(safe-area-inset-bottom);
+		padding-bottom: env(safe-area-inset-bottom);
+		box-shadow: 0rpx -10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+		background-color: #FFFFFF;
+	}
+	.okbtn{
+		width: 690rpx;
+		height: 80rpx;
+		background: #79C2EF;
+		border-radius: 40rpx;
+		font-size: 30rpx;
+		font-weight: bold;
+		color: #FFFFFF;
+		line-height: 80rpx;
+		text-align: center;
+		margin: 0 auto 20rpx;
+	}
+	.numbox{
+		width: 200rpx;
+		height: 50rpx;
+		border: 1rpx solid #999999;
+		border-radius: 12rpx;
+		font-size: 28rpx;
+		font-weight: bold;
+		color: #333333;
+		text-align: center;
+	}
+	.numbox>input{
+		width: 90rpx;
+		flex-shrink: 0;
+	}
+	.numbox>view{
+		flex: 1;
+		height: 100%;
+	}
+	.g_price{
+		font-size: 22rpx;
+		font-weight: bold;
+		color: #1961B6;
+	}
+	.big{
+		font-size: 40rpx;
+	}
+	.color_h{
+		padding-left: 5rpx;
+		font-weight: 400;
+		color: #333333;
+	}
+	
+</style>

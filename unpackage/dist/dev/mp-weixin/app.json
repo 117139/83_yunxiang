@@ -1,0 +1,96 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/education/index",
+    "pages/indexs/indexs"
+  ],
+  "subPackages": [
+    {
+      "root": "pagesA",
+      "pages": [
+        "login/login",
+        "qsxy/qsxy",
+        "city/index",
+        "data/data",
+        "My_collection/My_collection",
+        "my_make/my_make",
+        "my_Finance/my_Finance",
+        "address/address",
+        "Add_address/Add_address",
+        "My_order/My_order",
+        "Successful_trade/Successful_trade",
+        "kefu/kefu",
+        "shopping_order/shopping_order",
+        "Settlement_desk/Settlement_desk",
+        "Successful_trades/Successful_trades",
+        "result/result",
+        "test/test",
+        "about/about",
+        "particularsed/particularsed",
+        "search/search",
+        "particulars/particulars",
+        "arrange/arrange",
+        "pay/pay",
+        "date/date",
+        "shopType/shopType",
+        "detail/detail",
+        "ceshi/ceshi",
+        "Shopping_Cart/Shopping_Cart",
+        "evaluate/evaluate",
+        "jubao/jubao",
+        "searchgoods/searchgoods"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "云享自然",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#333333",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "访客预约"
+      },
+      {
+        "pagePath": "pages/education/index",
+        "text": "自然课堂"
+      },
+      {
+        "pagePath": "pages/indexs/indexs",
+        "text": "商城"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": [
+        "pagesA"
+      ]
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取当前城市"
+    }
+  },
+  "usingComponents": {
+    "avatar": "/components/yq-avatar/yq-avatar",
+    "tabbar": "/components/tabBar/tabBar",
+    "html-loading": "/components/html_loading/html_loading",
+    "topbar": "/components/top_bar/top_bar"
+  },
+  "sitemapLocation": "sitemap.json"
+}

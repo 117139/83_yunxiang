@@ -1,0 +1,28 @@
+
+.img {
+	width: 92rpx;
+	height: 111rpx;
+	margin-left: 330rpx;
+}
+page {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+.dai {
+	color: #EB4C50;
+}
+.content {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+.xcx_fwb_img{
+	padding: 0 30rpx;
+}
+

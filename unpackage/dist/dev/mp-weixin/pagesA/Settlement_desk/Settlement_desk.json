@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "结算台",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {}
+}

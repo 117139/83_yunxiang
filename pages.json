@@ -1,0 +1,386 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages 
+		{
+			"path": "pages/index/index",
+			"style": {
+				// "navigationBarTitleText": "云享自然 ",
+				// "enablePullDownRefresh": false,
+				// "navigationBarBackgroundColor": "#fff",
+				// "navigationBarTextStyle": "black"
+				"navigationStyle": "custom"
+			}
+
+		},
+		
+		{
+			"path": "pages/my/my",
+			"style": {
+				// "navigationBarTitleText": "",
+				"navigationStyle": "custom"
+				// "enablePullDownRefresh": false,
+				// "navigationBarBackgroundColor": "#fff",
+				// "navigationBarTextStyle": "black"
+				// "scrollIndicator": "none"
+			}
+		},
+
+
+		
+		{
+			"path": "pages/education/index",
+			"style": {
+				// "navigationBarTitleText": "环境教育",
+				"enablePullDownRefresh": true,
+				// "navigationBarBackgroundColor": "#fff",
+				// "navigationBarTextStyle": "black"
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/indexs/indexs",
+			"style": {
+				"navigationBarTitleText": "云享自然",
+				"navigationStyle": "custom"
+						
+			}
+		
+		}
+
+	],
+	"subPackages": [{
+		"root": "pagesA",
+		"pages": [{
+				"path": "login/login",
+				"style": {
+					// "navigationStyle": "custom"
+				}
+			},
+			{
+			    "path": "qsxy/qsxy",
+			    "style": {
+			     "navigationBarTitleText": "签署协议",
+			     "enablePullDownRefresh": false,
+			     "navigationBarBackgroundColor": "#fff",
+			     "navigationBarTextStyle": "black"
+			   
+			    }
+			   },
+			{
+				"path": "city/index",
+				"style": {
+					"navigationBarTitleText": "选择城市",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+			
+				}
+			},
+			{
+				"path": "data/data",
+				"style": {
+					"navigationBarTitleText": "修改资料",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+
+				}
+			},
+			{
+				"path": "My_collection/My_collection",
+				"style": {
+					"navigationBarTitleText": "我的收藏",
+					"enablePullDownRefresh": true,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+
+				}
+			},
+			{
+				"path": "my_make/my_make",
+				"style": {
+					"navigationBarTitleText": "我的预约",
+					"enablePullDownRefresh": true,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+
+				}
+			},
+			{
+				"path": "my_Finance/my_Finance",
+				"style": {
+					"navigationBarTitleText": "财务记录",
+					"enablePullDownRefresh": true,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+
+				}
+			},
+			{
+				"path": "address/address",
+				"style": {
+					"navigationBarTitleText": "我的收货地址",
+					"enablePullDownRefresh": true,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+
+				}
+			},
+			{
+				"path": "Add_address/Add_address",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+
+				}
+			},
+			{
+				"path": "My_order/My_order",
+				"style": {
+					"navigationBarTitleText": "我的订单",
+					"enablePullDownRefresh": true,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+
+				}
+			},
+			{
+				"path": "Successful_trade/Successful_trade",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+
+				}
+			},
+			{
+				"path": "kefu/kefu",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+
+				}
+			},
+			{
+				"path": "shopping_order/shopping_order",
+				"style": {
+					"navigationBarTitleText": "提交订单",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+
+				}
+			},
+			{
+				"path": "Settlement_desk/Settlement_desk",
+				"style": {
+					"navigationBarTitleText": "结算台",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+
+				}
+			},
+			{
+				"path": "Successful_trades/Successful_trades",
+				"style": {
+					"navigationBarTitleText": "退款/退货",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+
+				}
+			},
+			{
+				"path": "result/result",
+				"style": {
+					"navigationBarTitleText": "测试结果",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "test/test",
+				"style": {
+					"navigationBarTitleText": "访客测试",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "about/about",
+				"style": {
+					"navigationBarTitleText": "关于三江源",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "particularsed/particularsed",
+				"style": {
+					"navigationBarTitleText": "自然课堂详情",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			},
+			{
+				"path": "search/search",
+				"style": {
+					"navigationBarTitleText": "搜索商品",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "particulars/particulars",
+				"style": {
+					"navigationBarTitleText": "三江源国家公园",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "arrange/arrange",
+				"style": {
+					"navigationBarTitleText": "预约详情",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "pay/pay",
+				"style": {
+					"navigationBarTitleText": "结算台",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			}, {
+				"path": "date/date",
+				"style": {
+					"navigationBarTitleText": "全部景区",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+			},
+			{
+				"path": "shopType/shopType",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false,
+					"navigationStyle": "custom"
+				}
+			   
+			    
+			},
+			{
+				"path": "detail/detail",
+				"style": {
+					"enablePullDownRefresh": false,
+					"navigationStyle": "custom"
+				}
+			
+			},
+			{
+				"path": "ceshi/ceshi",
+				"style": {
+					"enablePullDownRefresh": false,
+					"navigationStyle": "custom"
+			
+				}
+			
+			},
+			{
+				"path": "Shopping_Cart/Shopping_Cart",
+				"style": {
+					"navigationBarTitleText": "购物车",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+			
+				}
+			
+			}
+			
+			,{
+			    "path" : "evaluate/evaluate",
+			    "style" :                                                                                    
+			    {
+			        "navigationBarTitleText": "",
+			        "enablePullDownRefresh": false,
+					"navigationStyle": "custom"
+			    }
+			    
+			}
+			,{
+			    "path" : "jubao/jubao",
+			    "style" :                                                                                    
+			    {
+			        "navigationBarTitleText": "举报",
+			       "enablePullDownRefresh": false,
+			       "navigationBarBackgroundColor": "#fff",
+			       "navigationBarTextStyle": "black"
+			    }
+			    
+			}
+,{
+			    "path" : "searchgoods/searchgoods",
+			    "style" :                                                                                    
+			    {
+			        "navigationBarTitleText": "搜索",
+			       "enablePullDownRefresh": false,
+			       "navigationBarBackgroundColor": "#fff",
+			       "navigationBarTextStyle": "black"
+			    }
+			    
+			}
+
+
+		]
+	}],
+	"preloadRule": {
+		"pages/index/index": {
+			"network": "all",
+			"packages": ["pagesA"]
+		}
+
+	},
+	"tabBar": {
+		"color": "#999",
+		"selectedColor": "#333333",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "访客预约"
+			},
+			{
+				"pagePath": "pages/education/index",
+				"text": "自然课堂"
+			}, {
+				"pagePath": "pages/indexs/indexs",
+				"text": "商城"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "我的"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "云享自然",
+		"navigationBarBackgroundColor": "#ffffff",
+		"backgroundColor": "#F8F8F8"
+	}
+}

@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-nav-bar": "/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar",
+    "tabbar": "/components/tabBar/tabBar",
+    "scenery": "/components/scenery/scenery",
+    "price": "/components/price/price"
+  }
+}

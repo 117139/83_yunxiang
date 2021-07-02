@@ -1,0 +1,85 @@
+
+.box{
+	padding: 0 30rpx 98rpx;
+}
+.search{
+	margin-top: 20rpx;
+	width: 100%;
+	background: rgba(153, 153, 153, 0.3);
+	height: 58rpx;
+		
+	border-radius: 29rpx;
+	padding: 0 15rpx;
+}
+.s_img {
+	width: 40rpx;
+	height: 40rpx;
+	margin-right: 10rpx;
+}
+.s_input {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	height: 58rpx;
+
+	border-radius: 29rpx;
+	font-size: 24rpx;
+	/* text-align: center; */
+}
+.searchbox>text{
+	font-size: 24rpx;
+	font-weight: 400;
+	color: #666666;
+}
+.findbox{
+	margin-top: 56rpx;
+}
+.finds{
+	width: calc(100% + 16rpx);
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+}
+.find{
+	padding: 19rpx 24rpx;
+	background: rgba(153,153,153,0.2);
+	border-radius: 8rpx;
+	font-size: 22rpx;
+	font-family: PingFang;
+	font-weight: 400;
+	color: #333333;
+	margin-top: 26rpx;
+	margin-right: 16rpx;
+}
+.recommendbox{
+	margin-top: 56rpx;
+}
+.heatgoods{
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	margin-bottom: 10rpx;
+}
+.goods{
+	width: 330rpx;
+	margin-top: 38rpx;
+}
+.goods>image{
+	width: 100%;
+	height: 400rpx;
+}
+.goods>text{
+	width: 100%;
+	font-size: 28rpx;
+	font-weight: bold;
+	color: #333333;
+	margin-top: 33rpx;
+}
+.goodsprice{
+	margin-top: 23rpx;
+}
+.goodsprice>text{
+	font-size: 22rpx;
+	font-weight: 400;
+	color: #999999;
+	padding-bottom: 4rpx;
+}
+

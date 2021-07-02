@@ -1,0 +1,1 @@
+<view class="heatbox dis_flex data-v-65453c84"><text class="heat data-v-65453c84">热度</text><view class="dis_flex aic data-v-65453c84"><block wx:for="{{5}}" wx:for-item="item" wx:for-index="index" wx:key="index"><image class="starimg data-v-65453c84" src="{{$root.m0}}" mode="aspectFit"></image></block></view></view>

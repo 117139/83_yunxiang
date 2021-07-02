@@ -1,0 +1,795 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Tabbar组件的样式   开始 */
+ .tabBar{
+  background-color: #FECE0A;
+}
+ .tabbartxt{
+  color: #fff;
+}
+ .nav{
+  opacity: 0.7;
+}
+ .nav_activt{
+  opacity: 1;
+}
+ /* Tabbar组件的样式   结束 */
+.status_title {
+	font-size: 34rpx;
+	font-family: PingFang;
+	font-weight: bold;
+}
+.typeadd {
+	position: fixed;
+	width: 100%;
+	position: fixed;
+	bottom: 20rpx;
+	padding-bottom: 0;
+	padding-bottom: constant(safe-area-inset-bottom);
+	padding-bottom: env(safe-area-inset-bottom);
+}
+.dibu {
+	width: 48rpx;
+	height: 48rpx;
+}
+.dibus {
+	width: 50rpx;
+	height: 50rpx;
+}
+.fun {
+	width: 100%;
+	position: fixed;
+	padding-top: 9rpx;
+	bottom: 0;
+	z-index: 999;
+	padding-bottom: 0;
+	padding-bottom: constant(safe-area-inset-bottom);
+	padding-bottom: env(safe-area-inset-bottom);
+	background-color: #FECE0A;
+}
+.heji {
+	width: 178rpx;
+	height: 60rpx;
+	background: #FECE0A;
+	border-radius: 30rpx;
+}
+ /* 数量加减 */
+.shoppingNumber {
+	width: 200rpx;
+	height: 50rpx;
+	border: 1px solid #999999;
+	border-radius: 12rpx;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+}
+ /* 减去商品数量 */
+.minute {
+	width: 55rpx;
+	text-align: center;
+	line-height: 50rpx;
+	font-size: 40rpx;
+	border-right: 1px solid #929292;
+}
+ /*文本框*/
+.input {
+	width: 55rpx;
+	height: 50rpx;
+	text-align: center;
+	font-size: 25rpx;
+	min-height: 0;
+	/* margin-top: -5rpx; */
+}
+ /* 添加商品数量 */
+.add {
+	width: 55rpx;
+	border-left: 1px solid #929292;
+	line-height: 50rpx;
+	text-align: center;
+	font-size: 35rpx;
+}
+.hui {
+	background: rgba(153,153,153,.1);
+	border-radius: 3rpx;
+	padding: 0 12rpx;
+	border-radius: 5rpx;
+	color: rgba(153,153,153,.8);
+}
+.logepic {
+	width: 160rpx;
+	height: 160rpx;
+	border-radius: 8rpx;
+}
+.wiimim {
+	width: 40rpx;
+	height: 40rpx;
+}
+.mia {
+	background: #FFFFFF;
+	box-shadow: 0px 10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+	border-radius: 8rpx;
+	position: relative;
+	margin-top: 26rpx;
+}
+page {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+.dai {
+	color: #FA3117;
+}
+.content {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+.container {}
+.delete-icon {
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	right: -184rpx;
+	width: 161rpx;
+	height: 230rpx;
+	background: #FA3117;
+	border-radius: 8rpx;
+	font-weight: 500;
+	font-size: 28rpx;
+	color: #FFFFFF;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+}
+

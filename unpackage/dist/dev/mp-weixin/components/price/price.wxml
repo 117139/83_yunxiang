@@ -1,0 +1,1 @@
+<view class="g_price data-v-84d004d0"><text class="data-v-84d004d0">￥</text><text class="big data-v-84d004d0"><slot name="num"></slot></text><text hidden="{{!(yyxq!='yyxq')}}" class="color_h data-v-84d004d0">元</text></view>

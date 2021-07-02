@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "三江源国家公园",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "scenery": "/components/scenery/scenery",
+    "price": "/components/price/price"
+  }
+}

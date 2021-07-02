@@ -1,0 +1,16 @@
+
+.g_price.data-v-84d004d0{
+	font-size: 22rpx;
+	font-weight: bold;
+	color: #1961B6;
+}
+.big.data-v-84d004d0{
+	font-size: 40rpx;
+}
+.color_h.data-v-84d004d0{
+	padding-left: 5rpx;
+	font-weight: 400;
+	color: #333333;
+}
+
+

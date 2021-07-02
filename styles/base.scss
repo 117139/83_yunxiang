@@ -1,0 +1,138 @@
+/* variable */
+@import "./variable/color.scss";
+/* helps */
+@import "./helps/color.scss";
+@import "./helps/font.scss";
+@import "./helps/margin.scss";
+@import "./helps/padding.scss";
+@import "./helps/position.scss";
+@import "./helps/width.scss";
+@import "./helps/common.scss";
+@import "./helps/box.scss";
+@import "./helps/vant.scss";
+@import "./helps/iconfont.scss";
+uni-checkbox .uni-checkbox-input.uni-checkbox-input-checked:before{
+	font-size: 30rpx !important;
+}
+	// .status_bar {
+	// 	height: var(--status-bar-height);
+	// 	width: 100%;
+	// }
+	.inpus-textarder{
+		width: 609rpx;
+		height: 250rpx !important;
+		background: #FFFFFF;
+		border: 1px solid #DEDEDE;
+		border-radius: 4rpx;
+	}
+	.loading {
+			line-height: 2em;
+			text-align: center;
+			color: #888;
+			/* background-color: #fff; */
+			padding-top: 20rpx;
+		}
+.swsws {
+	height: 300rpx;
+}
+.hom{
+	width: 538rpx;
+	height:300rpx;
+	border-radius: 10rpx;
+}
+button::after{
+  border-color: rgba(0, 0, 0, 0);
+}
+.uni-swiper-slides{
+	height: 30rpx;
+}
+.u-collapse-content[data-v-31fbc7f8] {
+		display: flex !important;
+		flex-wrap: wrap !important;
+	}
+	
+// uni-swiper{
+// 		height:500rpx !important;
+// 		z-index: 999999;
+// 		background-color: #fff;
+// 	}
+	.u-notice-bar[data-v-087a7280]{
+		height: 60rpx !important;
+		background-color: #fff;
+		width:100%;
+	}
+	.u-swiper-item[data-v-475fdbf0]{
+		background-color: #fff;
+		margin-left: 30rpx;
+	}
+	.u-notice-bar-wrap[data-v-087a7280]{
+		margin-left: 30rpx;
+	}
+	// 单选按钮 新建反馈
+	.uni-radios .uni-radio-input.uni-radio-input-checked:before{
+		font-size: 90rpx !important;
+		content: '.' !important;
+		color: #333 !important;
+		top: -170% !important;
+	}
+	.uni-radios .uni-radio-input{
+		width: 15rpx !important;
+		height: 15rpx !important;
+		border-color: #333 !important;
+		background-color: #fff !important;
+	}
+	// 轮播图
+	.swsw .uni-swiper-wrapper {
+		height: 550rpx !important;
+	}
+	uni-checkbox .uni-checkbox-input{
+		width: 27rpx !important;
+		height: 27rpx !important;
+		border-radius: 50%;
+		vertical-align: middle;
+		margin-right: 20rpx;
+	}
+	uni-checkbox:not([disabled]) .uni-checkbox-input:hover {
+		color: #FD7218 !important;
+		border-color:#FD7218 !important;
+	}
+	uni-checkbox .uni-checkbox-input.uni-checkbox-input-checked {
+		color: #FD7218 !important;
+		border-color:#FD7218 !important;
+	}
+	uni-switch .uni-switch-input:after {
+		width: 20rpx !important; 
+		    height: 20rpx  !important;
+	}
+	uni-switch .uni-switch-input.uni-switch-input-checked{
+		    width: 45rpx  !important;
+		    height: 25rpx  !important;
+			background-color: #FD7218 !important;
+			border-color:#FD7218 !important;
+	}
+	uni-switch .uni-switch-input{
+		width: 45rpx  !important;
+		height: 25rpx  !important;
+	}
+	uni-switch .uni-switch-input:before{
+		width: 20rpx !important;
+		    height: 25rpx  !important;
+	}
+	uni-switch .uni-switch-input.uni-switch-input-checked:after{
+		    transform: translateX(10px);
+	}
+	uni-radio .uni-radio-input{
+		// background-color: #fff !important; 
+		// background-color: #FD7218 ;
+		// background-color: #fd7218 !important;
+		    border-color: #FD7218 !important;
+			width: 30rpx ;
+			height: 30rpx;
+	}
+	.uni-radio-input {
+		background-color: #fff !important;
+	}
+	uni-radio .uni-radio-input.uni-radio-input-checked:before {
+		color: #FD7218;
+	}
+	

@@ -1,0 +1,36 @@
+
+.bor{
+	border-bottom: 1rpx solid  #F3F3F3;
+}
+page {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+.content {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+.tian {
+	width: 690rpx;
+	height: 82rpx;
+	background:#EB4C50;
+	border: 1px solid #EB4C50;
+	border-radius: 40rpx;
+	color: #fff;
+	margin-top: 112rpx;
+}
+.fanhui {
+	width: 11rpx;
+	height: 20rpx;
+	/* margin-top: -35rpx; */
+}
+.add_text{
+	width: 4em;
+}
+

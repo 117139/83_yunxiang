@@ -1,0 +1,43 @@
+
+.dh_top.data-v-67478258{
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 990;
+	background: #fff;
+	padding: 25px 15rpx 0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	overflow: hidden;
+}
+.dh_top1.data-v-67478258{
+	opacity: 0;
+	position: relative;
+}
+.dh_top>.nav_bar_img.data-v-67478258{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100vw;
+	height: auto;
+	z-index: 991;
+}
+.dh_top.data-v-67478258 text{
+	position: relative;
+	z-index: 	992;
+	color: #333;
+}
+.cf.data-v-67478258 text{
+	color: #fff;
+}
+

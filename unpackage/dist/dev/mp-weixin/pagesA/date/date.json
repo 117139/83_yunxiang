@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "全部景区",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "scenery": "/components/scenery/scenery",
+    "ren-calendar": "/pagesA/ren-calendar/ren-calendar"
+  }
+}

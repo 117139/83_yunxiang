@@ -1,0 +1,57 @@
+
+.status_title.data-v-0fb95a7c {
+	font-size: 34rpx;
+	font-family: PingFang;
+	font-weight: bold;
+}
+.box.data-v-0fb95a7c{
+	padding: 0 30rpx;
+	margin-top: 20rpx;
+}
+.hjjybox.data-v-0fb95a7c{
+	position: relative;
+	margin-bottom: 20rpx;
+}
+.bgimg.data-v-0fb95a7c{
+	width: 100%;
+	height: 240rpx;
+	border-radius: 8rpx;
+}
+.txtbox.data-v-0fb95a7c{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 240rpx;
+	padding: 44rpx 55rpx;
+}
+.hjjybtn.data-v-0fb95a7c{
+	width: 180rpx;
+	font-size: 24rpx;
+	font-weight: bold;
+	color: rgba(255,255,255,0.8);
+	background: #358540;
+	border-radius: 50rpx;
+	padding: 14rpx 0;
+	margin-top: 10rpx;
+	text-align: center;
+}
+.hjjytxt.data-v-0fb95a7c{
+	font-size: 30rpx;
+	font-weight: bold;
+	color: rgba(255,255,255,0.8);
+}
+/* Tabbar组件的样式   开始 */
+.data-v-0fb95a7c .tabBar{
+	background-color: #358540;
+}
+/* /deep/.tabbartxt{
+	color: #fff;
+}
+/deep/.nav{
+	opacity: 0.7;
+}
+/deep/.nav_activt{
+	opacity: 1;
+} */
+/* Tabbar组件的样式   结束 */
+

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "搜索商品",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "search": "/pagesA/searchs/searchs",
+    "recommend": "/components/recommend/recommend"
+  }
+}

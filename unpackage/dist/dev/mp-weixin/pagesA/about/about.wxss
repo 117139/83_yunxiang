@@ -1,0 +1,27 @@
+
+.box.data-v-9cfec3f2{
+	margin-top: 20rpx;
+	padding: 0 30rpx;
+}
+.imgs.data-v-9cfec3f2{
+	width: 100%;
+	height: 320rpx;
+}
+.tit.data-v-9cfec3f2{
+	padding-top: 25rpx;
+	text-align: center;
+	font-size: 30rpx;
+	font-weight: bold;
+	color: #000000;
+}
+.txt.data-v-9cfec3f2{
+	padding: 26rpx 0;
+	font-size: 24rpx;
+	font-weight: 400;
+	color: #000000;
+	line-height: 44rpx;
+}
+.xmfwb_box.data-v-9cfec3f2{
+	padding: 10rpx 30rpx;
+}
+
