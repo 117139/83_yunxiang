@@ -51,7 +51,7 @@
 					'商品1',
 				],
 				searchtext: '',
-				datas:[],
+				datas:{},
 				page:1,
 				data_last:false
 			}
@@ -63,7 +63,7 @@
 		},
 		methods:{
 			search_fuc(e){
-				console.log(e.detail.value)
+				// console.log(e.detail.value)
 				uni.navigateTo({
 					url:'/pagesA/shopType/shopType?searchtype=1&search='+that.searchtext
 				})
@@ -98,7 +98,7 @@
 						if (typeof datas == 'string') {
 							datas = JSON.parse(datas)
 						}
-							that.datas = datas.data
+							that.datas = datas
 				
 					} else {
 				
@@ -132,6 +132,7 @@
 			},
 			findbtn(index){
 				this.searchtext = this.datas.like[index]
+				that.search_fuc()
 			}
 		}
 	}

@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Search = function Search() {Promise.all(/*! require.ensure | pagesA/searchs/searchs */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pagesA/searchs/searchs")]).then((function () {return resolve(__webpack_require__(/*! ../searchs/searchs.vue */ 383));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Recommend = function Recommend() {Promise.all(/*! require.ensure | components/recommend/recommend */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/recommend/recommend")]).then((function () {return resolve(__webpack_require__(/*! ../../components/recommend/recommend.vue */ 390));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Search = function Search() {Promise.all(/*! require.ensure | pagesA/searchs/searchs */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pagesA/searchs/searchs")]).then((function () {return resolve(__webpack_require__(/*! ../searchs/searchs.vue */ 391));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Recommend = function Recommend() {Promise.all(/*! require.ensure | components/recommend/recommend */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/recommend/recommend")]).then((function () {return resolve(__webpack_require__(/*! ../../components/recommend/recommend.vue */ 398));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

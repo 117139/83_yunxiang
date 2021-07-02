@@ -39,7 +39,10 @@
         "Shopping_Cart/Shopping_Cart",
         "evaluate/evaluate",
         "jubao/jubao",
-        "searchgoods/searchgoods"
+        "searchgoods/searchgoods",
+        "xuzhi/xuzhi",
+        "order_pj/order_pj",
+        "order_wuliu/order_wuliu"
       ]
     }
   ],
@@ -91,6 +94,5 @@
     "tabbar": "/components/tabBar/tabBar",
     "html-loading": "/components/html_loading/html_loading",
     "topbar": "/components/top_bar/top_bar"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }

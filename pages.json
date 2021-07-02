@@ -14,7 +14,7 @@
 			}
 
 		},
-		
+
 		{
 			"path": "pages/my/my",
 			"style": {
@@ -28,7 +28,7 @@
 		},
 
 
-		
+
 		{
 			"path": "pages/education/index",
 			"style": {
@@ -44,9 +44,9 @@
 			"style": {
 				"navigationBarTitleText": "云享自然",
 				"navigationStyle": "custom"
-						
+
 			}
-		
+
 		}
 
 	],
@@ -59,15 +59,15 @@
 				}
 			},
 			{
-			    "path": "qsxy/qsxy",
-			    "style": {
-			     "navigationBarTitleText": "签署协议",
-			     "enablePullDownRefresh": false,
-			     "navigationBarBackgroundColor": "#fff",
-			     "navigationBarTextStyle": "black"
-			   
-			    }
-			   },
+				"path": "qsxy/qsxy",
+				"style": {
+					"navigationBarTitleText": "签署协议",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+
+				}
+			},
 			{
 				"path": "city/index",
 				"style": {
@@ -75,7 +75,7 @@
 					"enablePullDownRefresh": false,
 					"navigationBarBackgroundColor": "#fff",
 					"navigationBarTextStyle": "black"
-			
+
 				}
 			},
 			{
@@ -279,8 +279,8 @@
 					"enablePullDownRefresh": false,
 					"navigationStyle": "custom"
 				}
-			   
-			    
+
+
 			},
 			{
 				"path": "detail/detail",
@@ -288,16 +288,16 @@
 					"enablePullDownRefresh": false,
 					"navigationStyle": "custom"
 				}
-			
+
 			},
 			{
 				"path": "ceshi/ceshi",
 				"style": {
 					"enablePullDownRefresh": false,
 					"navigationStyle": "custom"
-			
+
 				}
-			
+
 			},
 			{
 				"path": "Shopping_Cart/Shopping_Cart",
@@ -306,45 +306,62 @@
 					"enablePullDownRefresh": false,
 					"navigationBarBackgroundColor": "#fff",
 					"navigationBarTextStyle": "black"
-			
+
 				}
-			
+
 			}
-			
-			,{
-			    "path" : "evaluate/evaluate",
-			    "style" :                                                                                    
-			    {
-			        "navigationBarTitleText": "",
-			        "enablePullDownRefresh": false,
+
+			, {
+				"path": "evaluate/evaluate",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false,
 					"navigationStyle": "custom"
-			    }
-			    
-			}
-			,{
-			    "path" : "jubao/jubao",
-			    "style" :                                                                                    
-			    {
-			        "navigationBarTitleText": "举报",
-			       "enablePullDownRefresh": false,
-			       "navigationBarBackgroundColor": "#fff",
-			       "navigationBarTextStyle": "black"
-			    }
-			    
-			}
-,{
-			    "path" : "searchgoods/searchgoods",
-			    "style" :                                                                                    
-			    {
-			        "navigationBarTitleText": "搜索",
-			       "enablePullDownRefresh": false,
-			       "navigationBarBackgroundColor": "#fff",
-			       "navigationBarTextStyle": "black"
-			    }
-			    
+				}
+
+			}, {
+				"path": "jubao/jubao",
+				"style": {
+					"navigationBarTitleText": "举报",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+
+			}, {
+				"path": "searchgoods/searchgoods",
+				"style": {
+					"navigationBarTitleText": "搜索",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"navigationBarTextStyle": "black"
+				}
+
 			}
 
 
+			, {
+				"path": "xuzhi/xuzhi",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "order_pj/order_pj",
+				"style": {
+					"navigationBarTitleText": "评价",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "order_wuliu/order_wuliu",
+				"style": {
+					"navigationBarTitleText": "物流详情",
+					"enablePullDownRefresh": false
+				}
+
+			}
 		]
 	}],
 	"preloadRule": {

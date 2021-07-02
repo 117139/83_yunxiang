@@ -166,7 +166,7 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
 
   onLoad: function onLoad(option) {
     that = this;
-    taht.id = option.id;
+    that.id = option.id;
   },
   onShow: function onShow() {
     that.btnkg = 0;

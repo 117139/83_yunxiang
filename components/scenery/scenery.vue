@@ -1,92 +1,71 @@
 <template>
-		<view class="menucontent">
-			<view class="" v-for="(item, index) in shuju" :key='index'>
-				<view class="dis_flex aic ju_b" v-if="pagetype != 'xq'" @click='tiaozhuan' :data-url="'/pagesA/particulars/particulars?id='+item.id" :data-shifou='false'>
-					<view class="dis_flex_c">
-						<view class="dis_flex aic">
-							<image class="mchlt_img" :src="getimg(item.p_info.img_url)" mode="aspectFit"></image>
-							<text class="mchlt_txt">{{item.p_info.title}}</text>
-						</view>
-						<text class="mchl__text">{{item.p_info.subtitle}}</text>
-					</view>
-					<text class="mch_text">立即预约</text>
-				</view>
-				<view class="mc_txts">
-					<view v-if="pagetype != 'xq'" @click='tiaozhuan' :data-url="'/pagesA/particulars/particulars?id='+item.id" :data-shifou='false'>
-						<view class="mc_bgimg">
-							<view class="place">
-								<image class="placeimg" :src="getimg('/static_xcx/index/dw1.png')" mode="aspectFit"></image>
-								<text class="placetxt">{{item.province}}{{item.city}}</text>
+		<view>
+			<view class="menucontent"  v-for="(item, index) in shuju" :key='index'>
+				<view class="">
+					<view class="dis_flex aic ju_b" v-if="pagetype != 'xq'" @click='tiaozhuan' :data-url="'/pagesA/particulars/particulars?id='+item.id" :data-shifou='false'>
+						<view class="dis_flex_c">
+							<view class="dis_flex aic">
+								<image class="mchlt_img" :src="getimg(item.p_info.img_url)" mode="aspectFit"></image>
+								<text class="mchlt_txt">{{item.p_info.title}}</text>
 							</view>
-							<view class="signup">
-								报名中 {{item.start_time | formatDate('-')}}
-							</view>
+							<text class="mchl__text">{{item.p_info.subtitle}}</text>
 						</view>
-						<image class="mct_img" :src="getimg(item.first_img)" mode="aspectFill"></image>
+						<text class="mch_text">立即预约</text>
 					</view>
-					
-					<view v-if="pagetype == 'xq'" style="position: relative;">
-						<swiper class="swiper" @change="topSwiperTab" :current="pagenum">
-							<swiper-item v-for="item,index in bannerlist" :key="index" @mouseup="aaa">
-								<view class="swiper-item">
-									<image class="bannerimg br8" :src="getimg(item)" mode="aspectFill"></image>
+					<view class="mc_txts">
+						<view v-if="pagetype != 'xq'" @click='tiaozhuan' :data-url="'/pagesA/particulars/particulars?id='+item.id" :data-shifou='false'>
+							<view class="mc_bgimg">
+								<view class="place">
+									<image class="placeimg" :src="getimg('/static_xcx/index/dw1.png')" mode="aspectFit"></image>
+									<text class="placetxt">{{item.province}}{{item.city}}</text>
 								</view>
-							</swiper-item>
-						</swiper>
-						<view class="pageNum">
-							{{pagenum+1}}/{{bannerlist.length}}
-						</view>
-					</view>
-					
-					<view class="mc_txt">
-						<view class="mct_top dis_flex ju_b">
-							<text class="group oh2" v-if="pagetype != 'xq'" @click='tiaozhuan' :data-url="'/pagesA/particulars/particulars?id='+item.id" :data-shifou='false'>{{item.title}}</text>
-							<text class="group oh2" v-if="pagetype == 'xq'">{{item.title}}</text>
-							<Heat v-if="pagetype != 'xq'"></Heat>
-							<view class="score" v-if="pagetype == 'xq'">
-								<image class="scoreimg" :src="getimg('/static_xcx/index/xxxxx.png')" mode="aspectFit"></image>
-								<text class="scoretxt">4.0</text>
+								<view class="signup">
+									报名中 {{item.start_time | formatDate('-')}}
+								</view>
 							</view>
-						</view>
-						<view class="dis_flex aife">
-							<Price>
-								<text slot="num">{{item.price}}</text>
-							</Price>
-							<text class="mctc_text3" v-if="pagetype != 'xq'">起</text>
-							<text class="mctc_text4" v-if="pagetype != 'xq'">{{item.start_time | formatDate('-')}}</text>
-							<text class="mctc_text5" v-if="pagetype != 'xq'">{{item.open_time}}</text>
+							<image class="mct_img" :src="getimg(item.first_img)" mode="aspectFill"></image>
 						</view>
 						
-						<view v-if="pagetype == 'xq'" class="dis_flex ju_b">
-							<view>
-								<text class="texts kfsj">开放时间</text>
-								<text class="texts">{{item.open_time}}</text>
-								<text class="texts tzjr">17:00停止进入</text>
-							</view>
-							<view>
-								<text class="texts gfxz" @click='tiaozhuan' data-url='/pagesA/kefu/kefu?id=5' :data-shifou='true'>官方须知</text>
-								<image class="ingfxz" :src="getimg('/static_xcx/index/into.png')" mode="aspectFit"></image>
+						<view v-if="pagetype == 'xq'" style="position: relative;">
+							<swiper class="swiper" @change="topSwiperTab" :current="pagenum">
+								<swiper-item v-for="item,index in bannerlist" :key="index" @mouseup="aaa">
+									<view class="swiper-item">
+										<image class="bannerimg br8" :src="getimg(item)" mode="aspectFill"></image>
+									</view>
+								</swiper-item>
+							</swiper>
+							<view class="pageNum">
+								{{pagenum+1}}/{{bannerlist.length}}
 							</view>
 						</view>
 						
-						<view class="mct_bottom dis_flex" >
-							<view class="tag" v-for="(num, index) in item.label_arr" :key='index'>
-								{{num}}
+						<view class="mc_txt">
+							<view class="mct_top dis_flex ju_b">
+								<text class="group oh2" v-if="pagetype != 'xq'" @click='tiaozhuan' :data-url="'/pagesA/particulars/particulars?id='+item.id" :data-shifou='false'>{{item.title}}</text>
+								<text class="group oh2" v-if="pagetype == 'xq'">{{item.title}}</text>
+								<Heat v-if="pagetype != 'xq'"></Heat>
 							</view>
-						</view>
-						 
-						<view v-if="pagetype == 'xq'" class="dis_flex ju_b mapbox">
-							<text class="maptxt oh1">青海省南部玉树藏族自治州称多县214国道西100米州称多县214国道西100米州称多县214国道西100米县214国道西100米州称多县214国道西100米</text>
-							<view class="dis_flex_c aic">
-								<image class="mapimg" :src="getimg('/static_xcx/index/map.png')" mode="aspectFit"></image>
-								<text class="maptxt2">地图</text>
+							<view class="dis_flex aife">
+								<Price>
+									<text slot="num">{{item.price}}</text>
+								</Price>
+								<text class="mctc_text3" v-if="pagetype != 'xq'">起</text>
+								<text class="mctc_text4" v-if="pagetype != 'xq'">{{item.start_time | formatDate('-')}}</text>
+								<text class="mctc_text5" v-if="pagetype != 'xq'">{{item.open_time}}</text>
 							</view>
-						</view>
 						
+							
+							<view class="mct_bottom dis_flex" >
+								<view class="tag" v-for="(num, index) in item.label_arr" :key='index'>
+									{{num}}
+								</view>
+							</view>
+							 
+						</view>
 					</view>
 				</view>
+				
 			</view>
-			
 		</view>
 </template>
 

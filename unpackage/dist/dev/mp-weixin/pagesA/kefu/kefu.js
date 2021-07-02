@@ -256,6 +256,9 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
     } else if (option.id == 4) {
       that.title = '用户协议';
       that.key = 'yhxy';
+    } else if (option.id == 7) {
+      that.title = '服务协议';
+      that.key = 'fwxy';
     }
 
     that.onRetry();

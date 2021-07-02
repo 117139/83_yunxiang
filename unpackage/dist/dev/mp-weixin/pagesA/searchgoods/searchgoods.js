@@ -189,7 +189,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _service = _interopRequireDefault(__webpack_require__(/*! ../../service.js */ 8));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var Search = function Search() {Promise.all(/*! require.ensure | pagesA/searchs/searchs */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pagesA/searchs/searchs")]).then((function () {return resolve(__webpack_require__(/*! ../searchs/searchs.vue */ 383));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _service = _interopRequireDefault(__webpack_require__(/*! ../../service.js */ 8));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var Search = function Search() {Promise.all(/*! require.ensure | pagesA/searchs/searchs */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pagesA/searchs/searchs")]).then((function () {return resolve(__webpack_require__(/*! ../searchs/searchs.vue */ 391));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 var that;var _default =
 {
   components: {
@@ -205,7 +205,7 @@ var that;var _default =
       '商品1'],
 
       searchtext: '',
-      datas: [],
+      datas: {},
       page: 1,
       data_last: false };
 
@@ -217,7 +217,7 @@ var that;var _default =
   },
   methods: {
     search_fuc: function search_fuc(e) {
-      console.log(e.detail.value);
+      // console.log(e.detail.value)
       uni.navigateTo({
         url: '/pagesA/shopType/shopType?searchtype=1&search=' + that.searchtext });
 
@@ -252,7 +252,7 @@ var that;var _default =
           if (typeof datas == 'string') {
             datas = JSON.parse(datas);
           }
-          that.datas = datas.data;
+          that.datas = datas;
 
         } else {
 
@@ -286,6 +286,7 @@ var that;var _default =
     },
     findbtn: function findbtn(index) {
       this.searchtext = this.datas.like[index];
+      that.search_fuc();
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

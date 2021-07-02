@@ -36,7 +36,7 @@
 								</view>
 							</view>
 							<view>
-								<view v-if="datas.type==5" class="quxiao flex aic ju_c fs12  mb10 mt10">
+								<view v-if="datas.type==5" @tap="jump" :data-url="'/pagesA/order_pj/order_pj?id='+item.id" class="quxiao flex aic ju_c fs12  mb10 mt10">
 									评价
 								</view>
 							</view>
@@ -87,7 +87,7 @@
 						<view v-if="datas.type==1" class="fu flex aic ju_c fs12 dai fs12 ml12 mb10" @click='pay' :data-url="'../Settlement_desk/Settlement_desk?code='+datas.code" :data-shifou='true'>
 							付款
 						</view>
-						<view v-if="datas.type>2&&datas.type!= 6" class="quxiao flex aic ju_c fs12  mb10">
+						<view v-if="datas.type>2&&datas.type!= 6"  @tap="jump" :data-url=" '../order_wuliu/order_wuliu?code='+datas.code" class="quxiao flex aic ju_c fs12  mb10">
 							查看物流
 						</view>
 						<view v-if="datas.type==3" class="fu flex aic ju_c fs12 dai fs12 ml12 mb10" @click="shouhuo(datas)">

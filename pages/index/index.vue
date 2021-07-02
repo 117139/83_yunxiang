@@ -58,7 +58,8 @@
 				</view>
 			</view>
 			<view class="menucontents">
-				<Scenery v-for="(item,index) in datas.activity" :key="index"></Scenery>
+				<!-- <Scenery v-for="(item,index) in datas.activity" :shuju="item" :key="index"></Scenery> -->
+				<Scenery  :shuju="datas.activity" :key="index"></Scenery>
 			</view>
 			<!-- 特色商品推荐 -->
 			<view class="goodtit">

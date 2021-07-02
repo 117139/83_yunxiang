@@ -34,7 +34,7 @@
 
 		onLoad(option) {
 			that=this
-			taht.id=option.id
+			that.id=option.id
 		},
 		onShow() {
 		that.btnkg =0

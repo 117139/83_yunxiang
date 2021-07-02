@@ -96,7 +96,7 @@ var components
 try {
   components = {
     wangdingPickerAddress: function() {
-      return Promise.all(/*! import() | components/wangding-pickerAddress/wangding-pickerAddress */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/wangding-pickerAddress/wangding-pickerAddress")]).then(__webpack_require__.bind(null, /*! @/components/wangding-pickerAddress/wangding-pickerAddress.vue */ 377))
+      return Promise.all(/*! import() | components/wangding-pickerAddress/wangding-pickerAddress */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/wangding-pickerAddress/wangding-pickerAddress")]).then(__webpack_require__.bind(null, /*! @/components/wangding-pickerAddress/wangding-pickerAddress.vue */ 385))
     }
   }
 } catch (e) {

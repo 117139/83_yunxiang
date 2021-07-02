@@ -54,7 +54,7 @@
 							付款
 						</view>
 						<view  v-if="item.type>2&&item.type!= 6" class="quxiao flex align-items-center justify-center fs12 " @click='jump'
-							:data-url=" '../Successful_trade/Successful_trade?id='+4" :data-shifou='true'>
+							:data-url=" '../order_wuliu/order_wuliu?code='+item.code" :data-shifou='true'>
 							查看物流
 						</view>
 						<view v-if="item.type==3" class="fu flex align-items-center justify-center fs12 dai fs12 ml12"
