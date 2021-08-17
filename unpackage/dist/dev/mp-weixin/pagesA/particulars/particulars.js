@@ -359,15 +359,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
 var _url = _interopRequireDefault(__webpack_require__(/*! ../../components/url.js */ 16));
 var _service = _interopRequireDefault(__webpack_require__(/*! ../../service.js */ 8));
 
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Price = function Price() {__webpack_require__.e(/*! require.ensure | components/price/price */ "components/price/price").then((function () {return resolve(__webpack_require__(/*! ../../components/price/price.vue */ 349));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);}; // 底部  tabbar
+
+var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Price = function Price() {__webpack_require__.e(/*! require.ensure | components/price/price */ "components/price/price").then((function () {return resolve(__webpack_require__(/*! ../../components/price/price.vue */ 375));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);}; // 底部  tabbar
 // import Tabbar from '../../components/tabBar/tabBar.vue'
-var that;var Scenery = function Scenery() {__webpack_require__.e(/*! require.ensure | components/scenery/scenery */ "components/scenery/scenery").then((function () {return resolve(__webpack_require__(/*! ../../components/scenery/scenery.vue */ 342));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var that;var tx_key = 'OUNBZ-TBSCQ-TT555-G5B75-M6MLZ-TWBSI';var Scenery = function Scenery() {__webpack_require__.e(/*! require.ensure | components/scenery/scenery */ "components/scenery/scenery").then((function () {return resolve(__webpack_require__(/*! ../../components/scenery/scenery.vue */ 368));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 {
@@ -426,11 +432,44 @@ var that;var Scenery = function Scenery() {__webpack_require__.e(/*! require.ens
   onReady: function onReady() {
 
   },
+  onShareAppMessage: function onShareAppMessage() {
+    if (res.from === 'button') {
+
+      return {
+        title: '51代言',
+        path: '/pagesA/particulars/particulars?id=' + that.id,
+        success: function success(res) {
+          console.log('成功', res);
+        } };
+
+
+    }
+  },
   computed: _objectSpread({},
   (0, _vuex.mapState)(['hasLogin', 'forcedLogin', 'userName', 'userinfo'])),
 
   methods: _objectSpread(_objectSpread({},
   (0, _vuex.mapMutations)(['logout', 'login'])), {}, {
+    daohang: function daohang(item) {
+      var that = this;
+      var plugin = requirePlugin('routePlan');
+
+      var key = tx_key; //使用在腾讯位置服务申请的key
+      var referer = item.title; //调用插件的app的名称
+      var latitude = item.lat || 31.298886; //纬度
+      var longitude = item.lng || 120.58531600000003; //经度
+      var endPoint = JSON.stringify({ //终点
+        'name': referer,
+        'latitude': parseFloat(latitude),
+        'longitude': parseFloat(longitude) });
+
+      console.log(endPoint);
+      wx.navigateTo({
+        url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' +
+        endPoint + '&navigation=1' });
+
+
+    },
     getimg_fuc: function getimg_fuc(img) {
       return _url.default.getimg(img);
     },
@@ -446,11 +485,12 @@ var that;var Scenery = function Scenery() {__webpack_require__.e(/*! require.ens
       _service.default.P_post('shop/collection', data).then(function (res) {
         console.log(res);
         if (res.code == 1) {
-          uni.showToast({
-            icon: 'none',
-            title: '收藏成功' });
-
-          that.user_shou = 1;
+          // uni.showToast({
+          // 	icon: 'none',
+          // 	title: '收藏成功'
+          // })
+          // that.user_shou = 1
+          that.getdatas();
           // that.getdatas()
           // if (that.user_shou == 2) {
           // 	uni.showToast({

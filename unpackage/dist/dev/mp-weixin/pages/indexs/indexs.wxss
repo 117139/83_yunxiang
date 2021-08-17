@@ -51,7 +51,8 @@
 .ShoppingMall .search {
   width: 690rpx;
   height: 58rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 20rpx 0 28rpx 0;
   display: -webkit-box;
   display: -webkit-flex;
@@ -121,7 +122,8 @@
   width: 690rpx;
   height: 280rpx;
   display: block;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 6rpx;
 }
 .ShoppingMall .recommend {
@@ -181,7 +183,8 @@
 .recommend .body .f-r {
   width: 690rpx;
   height: 260rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 56rpx 53rpx;
   position: relative;
 }

@@ -36,7 +36,8 @@
 .oper-wrapper {
 	height: 50px;
 	position: fixed !important;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	border: 1px solid #F1F1F1;
 	background: #ffffff;
 	width: 100%;
@@ -62,7 +63,8 @@
 	padding: 10rpx 20rpx;
 	width: 100%;
 	height: 100%;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	-webkit-align-self: center;
 	        align-self: center;
 }

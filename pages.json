@@ -362,7 +362,16 @@
 				}
 
 			}
-		]
+		    ,{
+                    "path" : "my_yy_xq/my_yy_xq",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "预约详情",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
 	}],
 	"preloadRule": {
 		"pages/index/index": {
@@ -378,19 +387,19 @@
 		"backgroundColor": "#ffffff",
 
 		"list": [{
-				"pagePath": "pages/index/index",
-				"text": "访客预约"
+				"pagePath": "pages/index/index"
+				// "text": ""
 			},
 			{
-				"pagePath": "pages/education/index",
-				"text": "自然课堂"
+				"pagePath": "pages/education/index"
+				// "text": ""
 			}, {
-				"pagePath": "pages/indexs/indexs",
-				"text": "商城"
+				"pagePath": "pages/indexs/indexs"
+				// "text": ""
 			},
 			{
-				"pagePath": "pages/my/my",
-				"text": "我的"
+				"pagePath": "pages/my/my"
+				// "text": "" 
 			}
 		]
 	},

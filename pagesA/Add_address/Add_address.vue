@@ -208,6 +208,7 @@
 				// 		})
 				// 	}, 1000)
 				// }
+				
 				var jkurl = '/user/address_add'
 				var datas = {
 					name: that.name,
@@ -242,7 +243,7 @@
 				// 单个请求
 				service.P_post(jkurl, datas).then(res => {
 				
-					that.btn_kg = 0
+					
 					console.log(res)
 					if (res.code == 1) {
 						var datas = res.data
@@ -256,6 +257,7 @@
 							title:'提交成功'
 						})
 						setTimeout(function(){
+							that.btn_kg = 0
 							uni.navigateBack({
 								delta:1
 							})

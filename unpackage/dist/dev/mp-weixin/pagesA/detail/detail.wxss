@@ -51,7 +51,8 @@
   width: 690rpx;
   height: 750rpx;
   display: block;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 6rpx;
 }
 .detail .banner .swiper.data-v-971c0f6a {
@@ -92,10 +93,12 @@
   width: 690rpx;
   height: 250rpx;
   background-color: #fff;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 25rpx 19rpx 4rpx 19rpx;
   margin-top: 26rpx;
-  box-shadow: 0 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+  -webkit-box-shadow: 0 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+          box-shadow: 0 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
   margin-bottom: 27rpx;
 }
 .detail .detail-box .detail-box-first-line.data-v-971c0f6a {
@@ -197,10 +200,12 @@
 .detail .Specifications.data-v-971c0f6a {
   width: 690rpx;
   height: 150rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 37rpx 19rpx 11rpx 19rpx;
   background: #FDFDFD;
-  box-shadow: 0px 10px 19px 3px rgba(153, 153, 153, 0.08);
+  -webkit-box-shadow: 0px 10px 19px 3px rgba(153, 153, 153, 0.08);
+          box-shadow: 0px 10px 19px 3px rgba(153, 153, 153, 0.08);
   border-radius: 8px;
   margin-bottom: 27rpx;
 }
@@ -312,10 +317,12 @@
 }
 .detail .evaluate.data-v-971c0f6a {
   width: 690rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 35rpx 19rpx 34rpx 20rpx;
   background: #FDFDFD;
-  box-shadow: 0px 10px 19px 3px rgba(153, 153, 153, 0.08);
+  -webkit-box-shadow: 0px 10px 19px 3px rgba(153, 153, 153, 0.08);
+          box-shadow: 0px 10px 19px 3px rgba(153, 153, 153, 0.08);
   border-radius: 8px;
 }
 .detail .evaluate .evaluate-first-line.data-v-971c0f6a {
@@ -456,10 +463,12 @@
 .detail .BabyDetails.data-v-971c0f6a {
   width: 690rpx;
   margin-top: 64rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .detail .BabyDetails .BabyDetails-title.data-v-971c0f6a {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0 84rpx;
   width: 100%;
   height: 28rpx;
@@ -501,7 +510,8 @@
   width: 100%;
   height: 120rpx;
   padding: 0 30rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -596,7 +606,8 @@
   position: absolute;
   bottom: 0;
   background-color: #FFFFFF;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 43rpx 30rpx 20rpx 30rpx;
 }
 .detail .MyPopup .MyPopupBox .MyPopupBox-first-line.data-v-971c0f6a {
@@ -618,7 +629,8 @@
 .detail .MyPopup .MyPopupBox .MyPopupBox-first-line .MyPopupBox-first-line-second-clum.data-v-971c0f6a {
   width: 521rpx;
   height: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0 30rpx 0 45rpx;
   position: relative;
 }
@@ -683,7 +695,8 @@
   min-width: 50rpx;
   height: 56rpx;
   margin-bottom: 20rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: inline-block;
   text-align: center;
   line-height: 56rpx;
@@ -711,7 +724,8 @@
   min-width: 50rpx;
   height: 56rpx;
   margin-bottom: 20rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: inline-block;
   text-align: center;
   line-height: 56rpx;
@@ -839,7 +853,8 @@
   color: rgba(255, 255, 255, 0.8) !important;
   height: 56rpx;
   margin-bottom: 20rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: inline-block;
   text-align: center;
   line-height: 56rpx;
@@ -853,7 +868,8 @@
   color: rgba(153, 153, 153, 0.5) !important;
   height: 56rpx;
   margin-bottom: 20rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: inline-block;
   text-align: center;
   line-height: 56rpx;

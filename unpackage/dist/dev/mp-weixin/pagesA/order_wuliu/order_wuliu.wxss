@@ -2,13 +2,16 @@
 #wrap.data-v-ec613c02 {
 	width: 100%;
 
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+
+	        box-sizing: border-box;
 	background: #FBFBFB;
 }
 .main.data-v-ec613c02 {
 	width: 100%;
 	padding: 20rpx 30rpx 0;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 .wuliu_tit.data-v-ec613c02 {
 	width: 100%;

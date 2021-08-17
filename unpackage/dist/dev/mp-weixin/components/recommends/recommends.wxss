@@ -60,7 +60,8 @@
 .recommend .body .f-r {
   width: 690rpx;
   height: 260rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 56rpx 53rpx;
   position: relative;
 }

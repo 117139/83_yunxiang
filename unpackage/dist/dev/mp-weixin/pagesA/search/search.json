@@ -5,6 +5,8 @@
   "navigationBarTextStyle": "black",
   "usingComponents": {
     "search": "/pagesA/searchs/searchs",
-    "recommend": "/components/recommend/recommend"
+    "recommend": "/components/recommend/recommend",
+    "heat": "/components/heat/heat",
+    "scenery": "/components/scenery/scenery"
   }
 }

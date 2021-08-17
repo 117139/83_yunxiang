@@ -28,7 +28,7 @@
 				<text class="zgtxt2">总成绩{{datas.passing_score}}分以上获得{{datas.easy_title}}生态体验资格。</text>
 			</view>
 			
-			<view class="agree" @click='jump' :data-url="'../test/test?id='+datas.id">
+			<view class="agree" @tap='jump' data-url='/pagesA/kefu/kefu?id=4'>
 				<image :src="getimg('/static_xcx/education/agree.png')" mode="aspectFit"></image>
 				<text>云享自然生态体验平台用户使用协议</text>
 			</view>

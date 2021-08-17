@@ -59,7 +59,13 @@
             "scope.userLocation" : {
                 "desc" : "获取当前城市"
             }
-        }
+        },
+				"plugins": {
+						"routePlan": {
+						"version": "1.0.12",
+						"provider": "wx50b5593e81dd937a"
+						}
+				}
     },
     "mp-alipay" : {
         "usingComponents" : true

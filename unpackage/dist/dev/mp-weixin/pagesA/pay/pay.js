@@ -97,14 +97,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var m0 = _vm.getimg("/static_xcx/index/weixin.png")
-  var m1 = _vm.getimg("/static_xcx/index/agreeimg.png")
+  var m0 = _vm.isToload ? _vm.getimg(_vm.shuju.img_url) : null
+  var m1 = _vm.isToload ? _vm.getimg("/static_xcx/index/goods.png") : null
+  var m2 = _vm.isToload ? _vm.getimg("/static_xcx/index/dw2.png") : null
+  var m3 = _vm.getimg("/static_xcx/index/weixin.png")
+  var m4 = _vm.getimg("/static_xcx/index/agreeimg.png")
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
         m0: m0,
-        m1: m1
+        m1: m1,
+        m2: m2,
+        m3: m3,
+        m4: m4
       }
     }
   )
@@ -141,7 +147,39 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -192,22 +230,43 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 var _url = _interopRequireDefault(__webpack_require__(/*! ../../components/url.js */ 16));
 
+var _service = _interopRequireDefault(__webpack_require__(/*! ../../service.js */ 8));
 
-var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Recommend = function Recommend() {Promise.all(/*! require.ensure | components/recommend/recommend */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/recommend/recommend")]).then((function () {return resolve(__webpack_require__(/*! ../../components/recommend/recommend.vue */ 398));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Price = function Price() {__webpack_require__.e(/*! require.ensure | components/price/price */ "components/price/price").then((function () {return resolve(__webpack_require__(/*! ../../components/price/price.vue */ 349));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var that;var _default =
+var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Recommend = function Recommend() {__webpack_require__.e(/*! require.ensure | components/recommend/recommend */ "components/recommend/recommend").then((function () {return resolve(__webpack_require__(/*! ../../components/recommend/recommend.vue */ 424));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Price = function Price() {__webpack_require__.e(/*! require.ensure | components/price/price */ "components/price/price").then((function () {return resolve(__webpack_require__(/*! ../../components/price/price.vue */ 375));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Heat = function Heat() {__webpack_require__.e(/*! require.ensure | components/heat/heat */ "components/heat/heat").then((function () {return resolve(__webpack_require__(/*! ../../components/heat/heat.vue */ 431));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var that;var _default =
 
 
 
 {
   components: {
     Recommend: Recommend,
-    Price: Price },
+    Price: Price,
+    Heat: Heat },
 
   data: function data() {
     return {
-      numval: 1 };
+      numval: 1,
+      num: '',
+      id: '',
+      code: '',
+      shuju: [],
+      monder: '',
+      loginres: '',
+      isToload: false,
+      yy_info: '' };
 
   },
-  onLoad: function onLoad() {
+  onLoad: function onLoad(option) {
+    that = this;
+    console.log(option);
+    that.id = option.id;
+    that.num = option.num;
+    that.monder = option.monder;
+    // if(that.shuju==[] || that.shuju.length=0) {
+    // 	that.shuju=''
+    // }
+    that.yy_info = uni.getStorageSync('yy_info');
+    that.getdatas();
+    // that.getdataa()
   },
   onReady: function onReady() {
   },
@@ -219,7 +278,184 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
     tiaozhuan: function tiaozhuan(e) {
       return _url.default.tiaozhuan(e);
 
+    },
+    goto: function goto() {
+      uni.getProvider({
+        service: 'oauth',
+        success: function success(res) {
+          // console.log(res.provider)
+          if (~res.provider.indexOf('weixin')) {
+            uni.login({
+              provider: 'weixin',
+              success: function success(loginRes) {
+                console.log(loginRes);
+                that.loginres = loginRes.code;
+              } });
+
+          }
+        } });
+
+      var data = {
+        code: that.code };
+
+
+      _service.default.P_post('pay', data).then(function (res) {
+        console.log(res);
+        if (res.code == 1) {
+          uni.requestPayment({
+            appId: res.data.appId,
+            provider: that.loginres,
+            // 时间
+            timeStamp: res.data.timeStamp,
+            // 随机字符串
+            nonceStr: res.data.nonceStr,
+            // 接口返回的 prepay_id 参数值
+            package: res.data.package,
+            // 签名类型，默认为MD5
+            signType: res.data.signType,
+            // 签名
+            paySign: res.data.paySign,
+
+            success: function success(res) {
+
+              console.log(res);
+              // that.titles = '等待发货'
+              // that.ids=2
+              uni.showToast({
+                title: '支付成功',
+                icon: 'none' });
+
+              // that.getdataa()
+              setTimeout(function () {
+                uni.redirectTo({
+                  url: '../my_make/my_make' });
+
+              }, 1000);
+
+            },
+            fail: function fail(err) {
+              // that.btnkg=0
+              // console.error('pay fail', err)
+              // setTimeout(function() {
+              setTimeout(function () {
+                uni.showToast({
+                  title: "支付失败",
+                  duration: 3000,
+                  icon: 'none' });
+
+              }, 1000);
+
+              that.getdataa();
+              // },1000)
+
+              // // if(that.shang==3) {
+              // 		wx.navigateBack({
+              // 			delta: 1
+              // 		})
+              // }else{
+              // uni.reLaunch({
+              // 	url:'../my_make/my_make'
+              // })
+              // }
+            } });
+
+          // that.$refs.htmlLoading.htmlReset_fuc(1)
+
+        } else {
+
+          // that.$refs.htmlLoading.htmlReset_fuc(1)
+          if (res.msg) {
+            uni.showToast({
+              icon: 'none',
+              title: res.msg });
+
+          } else {
+            uni.showToast({
+              icon: 'none',
+              title: '操作失败' });
+
+          }
+        }
+      }).catch(function (e) {
+
+        console.log(e);
+        uni.showToast({
+          icon: 'none',
+          title: '获取数据失败' });
+
+      });
+    },
+    getdatas: function getdatas() {
+      // console.log(that.id)
+      var data = {
+        id: that.id,
+        num: that.num,
+        info: JSON.stringify(that.yy_info) };
+
+      _service.default.P_post('order/activity', data).then(function (res) {
+        console.log(res);
+        if (res.code == 1) {
+          that.code = res.data;
+          that.getdataa();
+        } else {
+
+          // that.$refs.htmlLoading.htmlReset_fuc(1)
+          if (res.msg) {
+            uni.showToast({
+              icon: 'none',
+              title: res.msg });
+
+          } else {
+            uni.showToast({
+              icon: 'none',
+              title: '操作失败' });
+
+          }
+        }
+      }).catch(function (e) {
+
+        console.log(e);
+        uni.showToast({
+          icon: 'none',
+          title: '获取数据失败' });
+
+      });
+    },
+    getdataa: function getdataa() {
+      // console.log(that.id)
+      var data = {
+        code: that.code };
+
+      _service.default.P_post('order/activity_detail', data).then(function (res) {
+        console.log(res);
+        if (res.code == 1) {
+          that.shuju = res.data;
+          that.isToload = true;
+        } else {
+
+          // that.$refs.htmlLoading.htmlReset_fuc(1)
+          if (res.msg) {
+            uni.showToast({
+              icon: 'none',
+              title: res.msg });
+
+          } else {
+            uni.showToast({
+              icon: 'none',
+              title: '操作失败' });
+
+          }
+        }
+      }).catch(function (e) {
+
+        console.log(e);
+        uni.showToast({
+          icon: 'none',
+          title: '获取数据失败' });
+
+      });
     } }) };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

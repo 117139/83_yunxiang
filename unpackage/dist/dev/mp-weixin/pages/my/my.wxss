@@ -6,6 +6,7 @@
 	margin-top: 25rpx;
 }
 .bg-shadeTop {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0.01)));
 	background-image: -webkit-linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.01));
 	background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.01));
 	color: #ffffff;
@@ -77,7 +78,8 @@
 	width: 160rpx;
 	height: 60rpx;
 	background: #FFFFFF;
-	box-shadow: 0px 10rpx 19rpx 3rpx rgba(194, 0, 5, 0.15);
+	-webkit-box-shadow: 0px 10rpx 19rpx 3rpx rgba(194, 0, 5, 0.15);
+	        box-shadow: 0px 10rpx 19rpx 3rpx rgba(194, 0, 5, 0.15);
 	border-radius: 30rpx;
 
 	color: #EB4C50;
@@ -157,7 +159,8 @@ page {
 	width: 718rpx;
 	/* height: 317rpx; */
 	background: #FFFFFF;
-	box-shadow: 0px 5px 10px 1px rgba(194, 0, 5, 0.1);
+	-webkit-box-shadow: 0px 5px 10px 1px rgba(194, 0, 5, 0.1);
+	        box-shadow: 0px 5px 10px 1px rgba(194, 0, 5, 0.1);
 	border-radius: 10rpx;
 	background-color: #fff;
 	z-index: 9999999;

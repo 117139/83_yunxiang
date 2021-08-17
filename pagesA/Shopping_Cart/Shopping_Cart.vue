@@ -116,7 +116,7 @@
 				startX: 0,
 				hiddenFlag: true,
 				delBtnWidth: 90,
-				
+				ifOnShow: false,
 				selectId: [],
 				allchecked: false,
 				allprice:0,
@@ -132,15 +132,25 @@
 		components: {
 			Tabbar,
 		},
+		onHide() {
+			console.log('this.ifOnShow=true')
+			this.ifOnShow = true
+			that.allchecked = false
+			that.allprice=0
+		},
 		onLoad(option) {
 			that = this
 			// that.id=option.id
 			that.onRetry()
 		},
 		onShow() {
-			// if(this.hasLogin){
-			// 	this.onRetry()
-			// }
+			if (that.hasLogin) {
+				if (this.ifOnShow) {
+					this.getdata()
+				}
+		
+			} else {}
+		
 		},
 		// onReachBottom() {
 		// 	that.getdata()

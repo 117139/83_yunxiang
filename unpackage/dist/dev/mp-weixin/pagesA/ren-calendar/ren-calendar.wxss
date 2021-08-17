@@ -138,7 +138,8 @@
   height: 540rpx;
   position: relative;
   overflow: hidden;
-  box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+  -webkit-box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+          box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
 }
 .calendar-wrapper .content .days.data-v-5f5f7e2b {
   -webkit-transition: top 0.3s;

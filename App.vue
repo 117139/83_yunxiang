@@ -15,6 +15,11 @@
 				uni.hideTabBar({
 					animation:false
 				})
+				var token='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJhdWQiOiJZXyIsImlhdCI6MTYyNzg4MjgwOCwibmJmIjoxNjI3ODgyODA4LCJleHAiOjE2Mjc4OTAwMDh9.7U3xJHbEZxV_bTs_SrxucaWU6CEpxU9K9QMqFlEkXew'
+				// #ifdef H5
+				uni.setStorageSync('token',token)
+					
+				// #endif
 				uni.getSystemInfo({
 					success: function(e) {
 						// #ifndef MP
@@ -54,7 +59,12 @@
 						}
 				}); 
 				// wx.onLocationChange(_locationChangeFn)
-				service.wxlogin()
+				
+				if(uni.getStorageSync('token')){
+					service.wxlogin('token')
+				}else{
+					service.wxlogin()
+				}
 				// #endif
 				// uni.setStorageSync('token','eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJhdWQiOiJZXyIsImlhdCI6MTYyNTEwMjEzOCwibmJmIjoxNjI1MTAyMTM4LCJleHAiOjE2MjUxMDkzMzh9.nXB2nkRcvx6gcngv30HT1irDFdS_8lbXPzn6oh7uf-E')
 				// if(uni.getStorageSync('token')){
@@ -243,7 +253,15 @@
 				width: 100%;
 				white-space: nowrap;
 			}
-			
+			.tar{
+				text-align: right;
+			}
+			.tal{
+				text-align: left;
+			}
+			.tac{
+				text-align: center;
+			}
 			
 			
 			
@@ -326,4 +344,11 @@
 				padding-bottom: env(safe-area-inset-bottom);
 				/* 兼容 iOS >= 11.2 */
 			}
+			
+			
+			
+			
+		.int_moren{
+			font-size: $uni-font-size-base;
+		}
 </style>

@@ -97,6 +97,57 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var m0 = _vm.getimg("/static_xcx/index/ss.png")
+  var m2 = _vm.getimg("/static_xcx/index/goods.png")
+  var m3 = _vm.getimg("/static_xcx/index/dw2.png")
+  var l0 =
+    _vm.searchval == "" && _vm.searchs.length == 0
+      ? _vm.__map(_vm.shuju, function(item, index) {
+          var $orig = _vm.__get_orig(item)
+
+          var m1 = _vm.getimg(item.first_img)
+          return {
+            $orig: $orig,
+            m1: m1
+          }
+        })
+      : null
+  var m5 = _vm.getimg("/static_xcx/index/dw1.png")
+  var l1 =
+    _vm.searchs.length > 0
+      ? _vm.__map(_vm.searchs, function(item, index) {
+          var $orig = _vm.__get_orig(item)
+
+          var m4 = _vm.getimg(item.p_info.img_url)
+
+          var f0 = _vm._f("formatDate")(item.start_time, "-")
+
+          var m6 = _vm.getimg(item.first_img)
+
+          var f1 = _vm._f("formatDate")(item.start_time, "-")
+
+          return {
+            $orig: $orig,
+            m4: m4,
+            f0: f0,
+            m6: m6,
+            f1: f1
+          }
+        })
+      : null
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        m0: m0,
+        m2: m2,
+        m3: m3,
+        l0: l0,
+        m5: m5,
+        l1: l1
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -130,7 +181,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Search = function Search() {Promise.all(/*! require.ensure | pagesA/searchs/searchs */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pagesA/searchs/searchs")]).then((function () {return resolve(__webpack_require__(/*! ../searchs/searchs.vue */ 391));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Recommend = function Recommend() {Promise.all(/*! require.ensure | components/recommend/recommend */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/recommend/recommend")]).then((function () {return resolve(__webpack_require__(/*! ../../components/recommend/recommend.vue */ 398));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -152,30 +203,283 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _url = _interopRequireDefault(__webpack_require__(/*! ../../components/url.js */ 16));
+
+
+
+var _service = _interopRequireDefault(__webpack_require__(/*! ../../service.js */ 8));
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Search = function Search() {Promise.all(/*! require.ensure | pagesA/searchs/searchs */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pagesA/searchs/searchs")]).then((function () {return resolve(__webpack_require__(/*! ../searchs/searchs.vue */ 417));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Recommend = function Recommend() {__webpack_require__.e(/*! require.ensure | components/recommend/recommend */ "components/recommend/recommend").then((function () {return resolve(__webpack_require__(/*! ../../components/recommend/recommend.vue */ 424));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Heat = function Heat() {__webpack_require__.e(/*! require.ensure | components/heat/heat */ "components/heat/heat").then((function () {return resolve(__webpack_require__(/*! ../../components/heat/heat.vue */ 431));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Scenery = function Scenery() {__webpack_require__.e(/*! require.ensure | components/scenery/scenery */ "components/scenery/scenery").then((function () {return resolve(__webpack_require__(/*! ../../components/scenery/scenery.vue */ 368));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var that;var _default =
 
 
 
 {
   components: {
     Search: Search,
-    Recommend: Recommend },
+    Recommend: Recommend,
+    Heat: Heat,
+    Scenery: Scenery },
+
+  filters: {
+    // 时间戳处理
+    formatDate: function formatDate(value) {var spe = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '/';
+      value = value * 1000;
+      var data = new Date(value);
+      var year = data.getFullYear();
+      var month = data.getMonth() + 1;
+      var day = data.getDate();
+      var h = data.getHours();
+      var mm = data.getMinutes();
+      var s = data.getSeconds();
+      month = month > 10 ? month : "0" + month;
+      day = day > 10 ? day : "0" + day;
+      h = h > 10 ? h : "0" + h;
+      mm = mm > 10 ? mm : "0" + mm;
+      s = s > 10 ? s : "0" + s;
+      return "".concat(year).concat(spe).concat(month).concat(spe).concat(day);
+    } },
 
   data: function data() {
     return {
-      findlist: [
-      '三江源国家公园',
-      '祁连山国家公园',
-      '三江源公园黄河源区',
-      '三江源国家公园',
-      '祁连山国家公园'],
+      findlist: [],
 
-      searchtext: '' };
+
+      searchtext: '',
+      shuju: '',
+      searchval: '',
+      page: 1,
+      searchs: [],
+      data_last: false };
 
   },
-  methods: {
-    findbtn: function findbtn(index) {
+  onLoad: function onLoad() {
+    that = this;
+    that.getdata();
+  },
+  computed: _objectSpread({},
+  (0, _vuex.mapState)(['hasLogin', 'forcedLogin', 'userName', 'userinfo'])),
+
+  onReady: function onReady() {
+    that.page = 1;
+    that.data_last = false;
+  },
+
+  onReachBottom: function onReachBottom() {
+    that.soud();
+  },
+  methods: _objectSpread(_objectSpread({},
+  (0, _vuex.mapMutations)(['logout', 'login'])), {}, {
+    getimg: function getimg(img) {
+      return _url.default.getimg(img);
+    },
+    tiaozhuan: function tiaozhuan(e) {
+      return _url.default.tiaozhuan(e);
+    },
+    soud: function soud() {
+      // console.log(e)
+      // that.searchval=e.detail.value
+      console.log(that.searchval);
+      var data = {
+        page: that.page,
+        limit: 10,
+        // date: this.curDate,
+        // spot_id: that.array[that.indexs].id,
+        search: that.searchval };
+
+      var page_now = that.page;
+      _service.default.P_post('info/activity', data).then(function (res) {
+        // console.log(res)
+        if (res.code == 1) {
+          var datas = res.data;
+          // if (page_now == 1) {
+          that.searchs = res.data.data;
+          console.log(that.searchs, 'sss');
+          // that.shuju = datas.data
+
+
+          // } else {
+          // if (datas.data.length == 0) {
+          // that.data_last = true
+          // return
+          // }
+          // that.data_last = false
+          // that.searchs = that.searchs.concat(datas.data)
+          // console.log(that.searchs,'aaa')
+          // }
+          // that.page++
+          // console.log(that.data_last)
+        } else {
+
+          // that.$refs.htmlLoading.htmlReset_fuc(1)
+          if (res.msg) {
+            uni.showToast({
+              icon: 'none',
+              title: res.msg });
+
+          } else {
+            uni.showToast({
+              icon: 'none',
+              title: '操作失败' });
+
+          }
+        }
+      }).catch(function (e) {
+
+        console.log(e);
+        uni.showToast({
+          icon: 'none',
+          title: '获取数据失败' });
+
+      });
+    },
+
+    getdata: function getdata() {
+      var jkurl = 'search_index';
+      var data = {
+        type: 1 };
+
+      _service.default.P_post(jkurl, data).then(function (res) {
+        console.log(res);
+        if (res.code == 1) {
+          that.$refs.htmlLoading.htmlReset_fuc(0);
+          that.findlist = res.data.like;
+          that.shuju = res.data.list;
+          // console.log(that.shuju)
+        } else {
+
+          that.$refs.htmlLoading.htmlReset_fuc(1);
+          if (res.msg) {
+            uni.showToast({
+              icon: 'none',
+              title: res.msg });
+
+          } else {
+            uni.showToast({
+              icon: 'none',
+              title: '操作失败' });
+
+          }
+        }
+      }).catch(function (e) {
+
+        console.log(e);
+        uni.showToast({
+          icon: 'none',
+          title: '获取数据失败' });
+
+      });
+    },
+
+    findbtn: function findbtn(index, item) {
       this.searchtext = this.findlist[index];
-    } } };exports.default = _default;
+      that.searchval = item;
+      that.soud();
+    } }) };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

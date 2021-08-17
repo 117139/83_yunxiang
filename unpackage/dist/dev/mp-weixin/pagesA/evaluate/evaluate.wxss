@@ -29,10 +29,12 @@
 .evaluateView {
   width: 690rpx;
   height: 467rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 35rpx 19rpx 34rpx 20rpx;
   background: #FDFDFD;
-  box-shadow: 0px 10px 19px 3px rgba(153, 153, 153, 0.08);
+  -webkit-box-shadow: 0px 10px 19px 3px rgba(153, 153, 153, 0.08);
+          box-shadow: 0px 10px 19px 3px rgba(153, 153, 153, 0.08);
   border-radius: 8px;
 }
 .evaluateView .evaluate-first-line {
@@ -100,7 +102,8 @@
 }
 .evaluateView .evaluate-second-line {
   width: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .evaluateView .evaluate-second-line .evaluate-second-line-first {
   width: 100%;
@@ -187,7 +190,8 @@
 .evaluate .evaluateView {
   width: 750rpx;
   height: auto !important;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   background-color: #ffffff;
   padding-top: 20rpx 30rpx 20rpx;
 }

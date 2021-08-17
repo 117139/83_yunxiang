@@ -41,11 +41,14 @@
 	padding-bottom: 0;
 	padding-bottom: constant(safe-area-inset-bottom);
 	padding-bottom: env(safe-area-inset-bottom);
-	box-shadow: 0px -10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+	-webkit-box-shadow: 0px -10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+	        box-shadow: 0px -10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
 }
 .mian {
 
-	box-shadow: 0px 10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+	-webkit-box-shadow: 0px 10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+
+	        box-shadow: 0px 10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
 }
 .img {
 	width: 200rpx;

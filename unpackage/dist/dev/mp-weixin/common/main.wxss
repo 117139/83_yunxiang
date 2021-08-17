@@ -143,7 +143,8 @@ page {
   background: rgba(0, 0, 0, 0.3) !important;
 }
 .box-shadow {
-  box-shadow: 0 0 10px #f8f8f8 !important;
+  -webkit-box-shadow: 0 0 10px #f8f8f8 !important;
+          box-shadow: 0 0 10px #f8f8f8 !important;
 }
 .line-color {
   border-color: rgba(0, 0, 0, 0.05) !important;
@@ -152,6 +153,7 @@ page {
   background: rgba(0, 0, 0, 0.05) !important;
 }
 .bg-gradient {
+  background: -webkit-gradient(linear, left top, right top, from(#FFB789), to(#FF2941)) !important;
   background: -webkit-linear-gradient(left, #FFB789, #FF2941) !important;
   background: linear-gradient(to right, #FFB789, #FF2941) !important;
 }
@@ -1039,7 +1041,8 @@ page {
   display: inline-block;
 }
 .box-sw-t {
-  box-shadow: 1px -10rpx 8rpx 4rpx #f4f4f4;
+  -webkit-box-shadow: 1px -10rpx 8rpx 4rpx #f4f4f4;
+          box-shadow: 1px -10rpx 8rpx 4rpx #f4f4f4;
 }
 .wrap {
   white-space: pre;
@@ -1112,10 +1115,12 @@ button::after {
   border: 0;
 }
 .border-box {
-  box-sizing: border-box !important;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
 }
 .content-box {
-  box-sizing: content-box !important;
+  -webkit-box-sizing: content-box !important;
+          box-sizing: content-box !important;
 }
 .b-b-1 {
   border-bottom: 1rpx #ebedf0 solid;
@@ -1467,7 +1472,8 @@ z-index8 {
   color: #999;
 }
 view {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: PingFang SC;
 }
 .dis_flex {
@@ -1604,11 +1610,21 @@ rich-text .xcx_fwb_img {
   width: 100%;
   min-height: 100vh;
   background: #fff;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .scroll_x {
   width: 100%;
   white-space: nowrap;
+}
+.tar {
+  text-align: right;
+}
+.tal {
+  text-align: left;
+}
+.tac {
+  text-align: center;
 }
 .tab-top {
   width: 750rpx;
@@ -1623,13 +1639,15 @@ rich-text .xcx_fwb_img {
 }
 .tabs .tab-items {
   width: 20%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding-bottom: 30rpx;
 }
 .tab {
   width: 750rpx;
   height: 98rpx;
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   margin-left: -30rpx;
   background-color: #79C2EF;
   position: fixed;
@@ -1683,10 +1701,14 @@ rich-text .xcx_fwb_img {
   white-space: nowrap;
 }
 .compatibleProcessing {
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   padding-bottom: constant(safe-area-inset-bottom);
   /* 兼容 iOS < 11.2 */
   padding-bottom: env(safe-area-inset-bottom);
   /* 兼容 iOS >= 11.2 */
+}
+.int_moren {
+  font-size: 28rpx;
 }
 

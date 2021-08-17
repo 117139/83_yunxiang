@@ -291,12 +291,7 @@ const wxlogin = function(num) {
 			data: data,
 			header: {
 				'content-type': 'application/x-www-form-urlencoded',
-				// #ifndef H5
 				'token':uni.getStorageSync('token'),
-				// #endif
-				// #ifdef H5
-				'token':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJhdWQiOiJZXyIsImlhdCI6MTYyNTEwNTIzOSwibmJmIjoxNjI1MTA1MjM5LCJleHAiOjE2MjUxMTI0Mzl9.cApz8wcv6f674BhdQCAW6QE_Vf0ua411bOnbKiHecHA',
-				// #endif
 			},
 			dataType: 'json',
 			method: 'POST',
@@ -324,7 +319,7 @@ const wxlogin = function(num) {
 				}
 				if (res.data.code == 1) {
 					console.log('登录成功')
-					uni.setStorageSync('token', res.data.data.token)
+					// uni.setStorageSync('token', res.data.data.token)
 								
 												
 					store.commit('login', res.data.data)

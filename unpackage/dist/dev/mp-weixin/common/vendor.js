@@ -979,6 +979,11 @@ function initProperties(props) {var isBehavior = arguments.length > 1 && argumen
       type: Object,
       value: null };
 
+    // scopedSlotsCompiler auto
+    properties.scopedSlotsCompiler = {
+      type: String,
+      value: '' };
+
     properties.vueSlots = { // 小程序不能直接定义 $slots 的 props，所以通过 vueSlots 转换到 $slots
       type: null,
       value: [],
@@ -1374,11 +1379,14 @@ function initScopedSlotsParams() {
   };
 
   _vue.default.prototype.$setScopedSlotsParams = function (name, value) {
-    var vueId = this.$options.propsData.vueId;
-    var object = center[vueId] = center[vueId] || {};
-    object[name] = value;
-    if (parents[vueId]) {
-      parents[vueId].$forceUpdate();
+    var vueIds = this.$options.propsData.vueId;
+    if (vueIds) {
+      var vueId = vueIds.split(',')[0];
+      var object = center[vueId] = center[vueId] || {};
+      object[name] = value;
+      if (parents[vueId]) {
+        parents[vueId].$forceUpdate();
+      }
     }
   };
 
@@ -1784,6 +1792,7 @@ function createSubpackageApp(vm) {
   var app = getApp({
     allowDefault: true });
 
+  vm.$scope = app;
   var globalData = app.globalData;
   if (globalData) {
     Object.keys(appOptions.globalData).forEach(function (name) {
@@ -1799,17 +1808,17 @@ function createSubpackageApp(vm) {
   });
   if (isFn(appOptions.onShow) && wx.onAppShow) {
     wx.onAppShow(function () {for (var _len5 = arguments.length, args = new Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {args[_key5] = arguments[_key5];}
-      appOptions.onShow.apply(app, args);
+      vm.__call_hook('onShow', args);
     });
   }
   if (isFn(appOptions.onHide) && wx.onAppHide) {
     wx.onAppHide(function () {for (var _len6 = arguments.length, args = new Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {args[_key6] = arguments[_key6];}
-      appOptions.onHide.apply(app, args);
+      vm.__call_hook('onHide', args);
     });
   }
   if (isFn(appOptions.onLaunch)) {
     var args = wx.getLaunchOptionsSync && wx.getLaunchOptionsSync();
-    appOptions.onLaunch.call(app, args);
+    vm.__call_hook('onLaunch', args);
   }
   return vm;
 }
@@ -9170,7 +9179,8 @@ function _diff(current, pre, path, result) {
                 var currentType = type(currentValue);
                 var preType = type(preValue);
                 if (currentType != ARRAYTYPE && currentType != OBJECTTYPE) {
-                    if (currentValue != pre[key]) {
+                    // NOTE 此处将 != 修改为 !==。涉及地方太多恐怕测试不到，如果出现数据对比问题，将其修改回来。
+                    if (currentValue !== pre[key]) {
                         setResult(result, (path == '' ? '' : path + ".") + key, currentValue);
                     }
                 } else if (currentType == ARRAYTYPE) {
@@ -9751,7 +9761,7 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 253:
+/***/ 255:
 /*!*********************************************************!*\
   !*** E:/phpStudy/WWW/83_yunxiang/components/getDate.js ***!
   \*********************************************************/
@@ -9803,18 +9813,18 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 316:
+/***/ 342:
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 317);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 343);
 
 /***/ }),
 
-/***/ 317:
+/***/ 343:
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -9845,7 +9855,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 318);
+module.exports = __webpack_require__(/*! ./runtime */ 344);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -9862,7 +9872,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 318:
+/***/ 344:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -10594,7 +10604,18 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 382:
+/***/ 4:
+/*!**********************************************!*\
+  !*** E:/phpStudy/WWW/83_yunxiang/pages.json ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 408:
 /*!*************************************************************************!*\
   !*** E:/phpStudy/WWW/83_yunxiang/components/ss-select-city/cityData.js ***!
   \*************************************************************************/
@@ -11667,7 +11688,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 390:
+/***/ 416:
 /*!*****************************************************************************!*\
   !*** E:/phpStudy/WWW/83_yunxiang/components/wangding-pickerAddress/data.js ***!
   \*****************************************************************************/
@@ -21939,18 +21960,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 4:
-/*!**********************************************!*\
-  !*** E:/phpStudy/WWW/83_yunxiang/pages.json ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ 417:
+/***/ 450:
 /*!***************************************************************************************!*\
   !*** E:/phpStudy/WWW/83_yunxiang/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \***************************************************************************************/
@@ -22393,12 +22403,7 @@ var wxlogin = function wxlogin(num) {
       data: data,
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-
         'token': uni.getStorageSync('token') },
-
-
-
-
 
       dataType: 'json',
       method: 'POST',
@@ -22426,7 +22431,7 @@ var wxlogin = function wxlogin(num) {
         }
         if (res.data.code == 1) {
           console.log('登录成功');
-          uni.setStorageSync('token', res.data.data.token);
+          // uni.setStorageSync('token', res.data.data.token)
 
 
           _index.default.commit('login', res.data.data);

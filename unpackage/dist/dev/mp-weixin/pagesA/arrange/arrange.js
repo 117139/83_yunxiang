@@ -97,8 +97,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var m0 = _vm.getimg_fuc("/static_xcx/index/into.png")
-  var m1 = _vm.getimg_fuc("/static_xcx/index/agreeimg.png")
+  var m0 = _vm.getimg_fuc(_vm.shuju.first_img)
+  var m1 = _vm.getimg_fuc("/static_xcx/index/goods.png")
+  var m2 = _vm.getimg_fuc("/static_xcx/index/dw2.png")
+  var m3 = _vm.getimg_fuc("/static_xcx/index/agreeimg.png")
 
   if (!_vm._isMounted) {
     _vm.e0 = function($event) {
@@ -115,7 +117,9 @@ var render = function() {
     {
       $root: {
         m0: m0,
-        m1: m1
+        m1: m1,
+        m2: m2,
+        m3: m3
       }
     }
   )
@@ -242,23 +246,71 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _url = _interopRequireDefault(__webpack_require__(/*! ../../components/url.js */ 16));
 var _service = _interopRequireDefault(__webpack_require__(/*! ../../service.js */ 8));
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} // 底部  tabbar
+
+var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Heat = function Heat() {__webpack_require__.e(/*! require.ensure | components/heat/heat */ "components/heat/heat").then((function () {return resolve(__webpack_require__(/*! ../../components/heat/heat.vue */ 431));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);}; // 底部  tabbar
 // import Tabbar from '../../components/tabBar/tabBar.vue'
-var that;var Recommend = function Recommend() {Promise.all(/*! require.ensure | components/recommend/recommend */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/recommend/recommend")]).then((function () {return resolve(__webpack_require__(/*! ../../components/recommend/recommend.vue */ 398));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Price = function Price() {__webpack_require__.e(/*! require.ensure | components/price/price */ "components/price/price").then((function () {return resolve(__webpack_require__(/*! ../../components/price/price.vue */ 349));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var that;var Recommend = function Recommend() {__webpack_require__.e(/*! require.ensure | components/recommend/recommend */ "components/recommend/recommend").then((function () {return resolve(__webpack_require__(/*! ../../components/recommend/recommend.vue */ 424));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Price = function Price() {__webpack_require__.e(/*! require.ensure | components/price/price */ "components/price/price").then((function () {return resolve(__webpack_require__(/*! ../../components/price/price.vue */ 375));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
 {
   components: {
     Recommend: Recommend,
-    Price: Price
-    // yuDatetimePicker
-  },
+    Price: Price,
+    Heat: Heat },
+
   data: function data() {
     var currentDate = this.getDate({
       format: true });
@@ -270,7 +322,14 @@ var that;var Recommend = function Recommend() {Promise.all(/*! require.ensure | 
       showxz: true,
       numval: 1,
       time: '请选择',
-      monder: '' };
+      monder: '',
+      info: [
+      {
+        name: '',
+        phone: '',
+        IdCard: '' }] };
+
+
 
   },
   onReady: function onReady() {
@@ -367,7 +426,8 @@ var that;var Recommend = function Recommend() {Promise.all(/*! require.ensure | 
     jian: function jian() {
       if (this.numval > 1) {
         this.numval--;
-        that.getdatas();
+        // that.getdatas()
+        that.info.pop();
       } else {
         uni.showToast({
           title: '再减就没有商品啦',
@@ -377,7 +437,39 @@ var that;var Recommend = function Recommend() {Promise.all(/*! require.ensure | 
     },
     numvals: function numvals() {
       that.numval++;
-      that.getdatas();
+      var info_new = {
+        name: '',
+        phone: '',
+        IdCard: '' };
+
+      that.info.push(info_new);
+      // that.getdatas()
+    },
+    zf_tip: function zf_tip() {
+      if (!that.showxz) {
+        uni.showToast({
+          icon: 'none',
+          title: '请先阅读服务协议' });
+
+        return;
+      }
+      var usermsg = true;
+      for (var i = 0; i < that.info.length; i++) {
+        if (!that.info[i].name || !that.info[i].phone || !that.info[i].IdCard) {
+          usermsg = false;
+        }
+      }
+      if (!usermsg) {
+        uni.showToast({
+          icon: 'none',
+          title: '请先填写预约人的信息' });
+
+        return;
+      }
+      uni.setStorageSync('yy_info', that.info);
+      uni.navigateTo({
+        url: '../pay/pay?id=' + that.shuju.id + '&num=' + that.numval + '&monder=' + that.monder });
+
     } }) };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

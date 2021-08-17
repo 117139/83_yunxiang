@@ -1,15 +1,11 @@
 <template>
 	<view>
 		<uni-nav-bar fixed="true" title="云享自然· 国家公园生态体验" color="#79C2EF" class="status_title" statusBar="true"></uni-nav-bar>
-		<htmlLoading ref="htmlLoading" @Retry='onRetry' :bj_show="false">
+		<htmlLoading ref="htmlLoading" @Retry='onRetry' >
 		
 		
-		<!-- 外侧 -->
+		<!-- 外侧 --> 
 		<view class="box"> 
-			
-			
-			
-			
 			<!-- 头部 -->
 			<view class="header dis_flex aic ju_b">
 				<!-- 定位 -->
@@ -52,7 +48,7 @@
 			
 			<!-- 轮播下的小菜单 -->
 			<view class="menus dis_flex ">
-				<view class="menu dis_flex_c aic" v-for="(item,index) in datas.spot" :key="index"  @click='jump' :data-url="'/pagesA/date/date?index='+index" :data-shifou='false'>
+				<view class="menu dis_flex_c aic" v-for="(item,index) in datas.spot" :key="index"  @click='jump' :data-url="'/pagesA/date/date?index='+item.id" :data-shifou='false'>
 					<image :src="getimg(item.img_url)" mode="aspectFit"></image>
 					<text class="oh2">{{item.title}}</text>
 				</view>
@@ -225,6 +221,7 @@
 					that.btn_kg = 0
 					console.log(res)
 					if (res.code == 1) {
+						console.log(that.$refs.htmlLoading)
 						that.$refs.htmlLoading.htmlReset_fuc(0)
 						var datas = res.data
 						console.log(typeof datas)

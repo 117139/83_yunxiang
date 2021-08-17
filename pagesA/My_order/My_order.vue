@@ -21,7 +21,7 @@
 					<image :src="getimg(item1.goods_pic)" mode="aspectFill" class="img mr10 flex"></image>
 					<view class="flex flex-col">
 						<view class="flex align-items-center flex-between">
-							<text class="oh1 fs14 " style="width: 325rpx; height: 40rpx;">{{item1.goods_title}}</text>
+							<text class="oh1 fs14 " style="width: 310rpx; height: 40rpx;">{{item1.goods_title}}</text>
 							<view class="c9  ">
 								<text class="fs12">￥</text>
 								<text class="fs14">{{item1.price}}</text>

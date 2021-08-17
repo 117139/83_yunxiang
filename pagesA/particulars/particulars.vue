@@ -15,11 +15,9 @@
 				</view>
 			</view>
 
-			<view class="mc_txts">
+			<view class="mc_txts pl15 pr15">
 				<view class="mct_top dis_flex ju_b">
-					<text class="group oh2" @click='tiaozhuan'
-						:data-url="'/pagesA/particulars/particulars?id='+shuju.pid"
-						:data-shifou='false'>{{shuju.title}}</text>
+					<text class="group oh2" >{{shuju.title}}</text>
 					<!-- <text class="group oh2" >111</text> -->
 					<!-- <Heat ></Heat> -->
 					<view class="score">
@@ -60,7 +58,7 @@
 				<!-- v-html="get_fwb(shuju.content)" -->
 				<view class="dis_flex ju_b mapbox">
 					<view class="maptxt ">{{shuju.province}}{{shuju.city}}{{shuju.county}}</view>
-					<view class="dis_flex_c aic">
+					<view class="dis_flex_c aic" @tap.stop="daohang(shuju)">
 						<image class="mapimg" :src="getimg_fuc('/static_xcx/index/map.png')" mode="aspectFit"></image>
 						<text class="maptxt2">地图</text>
 					</view>
@@ -93,7 +91,7 @@
 				</view>
 
 				<view v-show="activetabnum == 0">
-					<view class="" v-html="get_fwb(shuju.content)">
+					<view class="fs11 c6 pt10" v-html="get_fwb(shuju.content)">
 
 					</view>
 					<!-- 
@@ -124,12 +122,18 @@
 						<view class="remindertxt">场地:活动场地租</view>
 					</view> -->
 				</view>
-				<view v-show="activetabnum == 1" class="pt20" v-for="arr,index in shuju.schedule_arr" :key="index">
+				<view v-show="activetabnum == 1" class="fs11 c6" v-for="arr,index in shuju.schedule_arr" :key="index">
+					<view class="daytit dis_flex aic pb10 " :class="{daytit1:index == 0}">
+						<view class="daynum">{{arr.num}}</view>
+						<view class="day">day</view>
+						<view class="daytxt">● {{arr.title}}</view>
+					</view>
 					<view class="" v-html="get_fwb(arr.content)">
 
 					</view>
 				</view>
-				<view v-show="activetabnum == 2" class="pt20" v-for="arr,index in shuju.more_content_arr" :key="index">
+				<view v-show="activetabnum == 2" class="pt20 fs11 c6" v-for="arr,index in shuju.more_content_arr"
+					:key="index">
 					<text> {{arr.content}}</text>
 				</view>
 			</view>
@@ -141,7 +145,8 @@
 					<image class="subscribeimg" :src="getimg_fuc('/static_xcx/index/jb.png')" mode="aspectFit"></image>
 					<text class="subscribetxt">举报</text>
 				</view>
-				<view class="dis_flex_c">
+				<view class="dis_flex_c" style="position: relative;">
+						<button type="default" open-type="share" :data-id="item.id" style="position: absolute;top: 0;opacity: 0;width: 100%;height: 100%;"></button>
 					<image class="subscribeimg" :src="getimg_fuc('/static_xcx/index/fx1.png')" mode="aspectFit"></image>
 					<text class="subscribetxt">分享</text>
 				</view>
@@ -174,6 +179,7 @@
 	// 底部  tabbar
 	// import Tabbar from '../../components/tabBar/tabBar.vue'
 	var that
+	var tx_key = 'OUNBZ-TBSCQ-TT555-G5B75-M6MLZ-TWBSI'
 	import {
 		mapState,
 		mapMutations
@@ -235,11 +241,44 @@
 		onReady() {
 
 		},
+		onShareAppMessage() {
+			if (res.from === 'button') {
+			
+					return {
+						title: '51代言',
+						path: '/pagesA/particulars/particulars?id=' + that.id,
+						success: function(res) {
+							console.log('成功', res)
+						}
+					}
+				
+			}
+		},
 		computed: {
 			...mapState(['hasLogin', 'forcedLogin', 'userName', 'userinfo'])
 		},
 		methods: {
 			...mapMutations(['logout', 'login']),
+			daohang: function(item) {
+				let that = this
+				let plugin = requirePlugin('routePlan');
+
+				let key = tx_key; //使用在腾讯位置服务申请的key
+				let referer = item.title; //调用插件的app的名称
+				var latitude = item.lat || 31.298886 //纬度
+				var longitude = item.lng || 120.58531600000003 //经度
+				let endPoint = JSON.stringify({ //终点
+					'name': referer,
+					'latitude': parseFloat(latitude),
+					'longitude': parseFloat(longitude)
+				});
+				console.log(endPoint)
+				wx.navigateTo({
+					url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' +
+						endPoint + '&navigation=1'
+				});
+
+			},
 			getimg_fuc(img) {
 				return api.getimg(img)
 			},
@@ -250,16 +289,17 @@
 			shoucang() {
 				var data = {
 					cid: that.shuju.id,
-					status:2
+					status: 2
 				}
 				service.P_post('shop/collection', data).then(res => {
 					console.log(res)
 					if (res.code == 1) {
-						uni.showToast({
-							icon: 'none',
-							title: '收藏成功'
-						})
-						that.user_shou = 1
+						// uni.showToast({
+						// 	icon: 'none',
+						// 	title: '收藏成功'
+						// })
+						// that.user_shou = 1
+						that.getdatas()
 						// that.getdatas()
 						// if (that.user_shou == 2) {
 						// 	uni.showToast({
@@ -299,53 +339,53 @@
 				})
 			},
 
-		topSwiperTab(e) {
-			this.pagenum = Number(e.target.current);
-		},
-		get_fwb(str) {
-			// console.log(str)
-			if (!str) {
-				return str
-			}
-			return service.get_fwb(str)
-		},
-		getdatas() {
-			// console.log(that.id)
-			var data = {
-				id: that.id,
-			}
-			service.P_post('info/activity_detail', data).then(res => {
-				console.log(res)
-				if (res.code == 1) {
-					that.shuju = res.data.info
-					that.user_shou = res.data.user.collection
-					// console.log(that.user_shou, 'that.user_shouthat.user_shouthat.user_shou')
-				} else {
-
-					// that.$refs.htmlLoading.htmlReset_fuc(1)
-					if (res.msg) {
-						uni.showToast({
-							icon: 'none',
-							title: res.msg
-						})
-					} else {
-						uni.showToast({
-							icon: 'none',
-							title: '操作失败'
-						})
-					}
+			topSwiperTab(e) {
+				this.pagenum = Number(e.target.current);
+			},
+			get_fwb(str) {
+				// console.log(str)
+				if (!str) {
+					return str
 				}
-			}).catch(e => {
+				return service.get_fwb(str)
+			},
+			getdatas() {
+				// console.log(that.id)
+				var data = {
+					id: that.id,
+				}
+				service.P_post('info/activity_detail', data).then(res => {
+					console.log(res)
+					if (res.code == 1) {
+						that.shuju = res.data.info
+						that.user_shou = res.data.user.collection
+						// console.log(that.user_shou, 'that.user_shouthat.user_shouthat.user_shou')
+					} else {
 
-				console.log(e)
-				uni.showToast({
-					icon: 'none',
-					title: '获取数据失败'
+						// that.$refs.htmlLoading.htmlReset_fuc(1)
+						if (res.msg) {
+							uni.showToast({
+								icon: 'none',
+								title: res.msg
+							})
+						} else {
+							uni.showToast({
+								icon: 'none',
+								title: '操作失败'
+							})
+						}
+					}
+				}).catch(e => {
+
+					console.log(e)
+					uni.showToast({
+						icon: 'none',
+						title: '获取数据失败'
+					})
 				})
-			})
-		},
+			},
 
-	}
+		}
 	}
 </script>
 
@@ -445,9 +485,10 @@
 	}
 
 	.day {
-		font-size: 20rpx;
+		font-size: 22rpx;
 		font-weight: 400;
 		color: #333333;
+		margin-bottom: 5rpx;
 	}
 
 	.daytxt {

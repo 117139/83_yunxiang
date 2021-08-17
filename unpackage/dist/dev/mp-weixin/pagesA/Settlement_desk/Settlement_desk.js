@@ -318,11 +318,11 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
               icon: 'none',
               title: '购买成功' });
 
-            _service.default.get_info();
+            // service.get_info()
             setTimeout(function () {
               uni.redirectTo({
                 // url:'/pagesA/OrderList/OrderList'
-                url: '/pagesA/My_order/My_order?type=5' });
+                url: '/pagesA/My_order/My_order?currentIndex=0' });
 
             }, 1000);
           }).catch(function (e) {
@@ -331,11 +331,9 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
               icon: 'none',
               title: '微信支付失败' });
 
-            // service.wxlogin()
-
             setTimeout(function () {
               uni.redirectTo({
-                url: '/pagesA/My_order/My_order' });
+                url: '/pagesA/My_order/My_order?currentIndex=0' });
 
             }, 1000);
           });

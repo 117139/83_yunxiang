@@ -12,7 +12,7 @@
 			<!-- <view class="data_last" v-if="datas == [] || datas.length == 0 ">
 				暂无数据
 			</view> -->
-			<view class=" flex mia pt15 pb15 pl10 mb15" v-for="(item,index) in datas">
+			<view class=" flex mia pt15 pb15 pl10 mb15" v-for="(item,index) in datas" @tap="jump" :data-url="'/pagesA/my_yy_xq/my_yy_xq?code='+item.code">
 				<image :src="getimg(item.img_url)" mode="aspectFill" class="tu mr15"></image>
 				<view class="">
 					<text class="oh1 fs14 fwb"

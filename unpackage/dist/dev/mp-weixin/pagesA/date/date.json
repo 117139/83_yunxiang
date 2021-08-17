@@ -5,6 +5,7 @@
   "navigationBarTextStyle": "black",
   "usingComponents": {
     "scenery": "/components/scenery/scenery",
-    "ren-calendar": "/pagesA/ren-calendar/ren-calendar"
+    "ren-calendar": "/pagesA/ren-calendar/ren-calendar",
+    "heat": "/components/heat/heat"
   }
 }

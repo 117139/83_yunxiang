@@ -1,1 +1,1 @@
-<view class="content "><view class="data_last">{{''+datas+''}}</view></view>
+<view class="content p15"><view class="data_last">{{''+datas+''}}</view></view>

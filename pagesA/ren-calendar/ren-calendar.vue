@@ -15,51 +15,48 @@
 				{{ item }}
 			</view>
 		</view>
+
+		<!--  today: isToday(item.year, item.month, item.date), -->
 		<view :class="{ hide: !monthOpen }" class="content">
 			<view :style="{ top: positionTop + 'rpx' }" class="days">
 				<view class="item" v-for="(item, index) in dates" :key="index">
 					<view class="day" @click="selectOne(item, $event)" :class="{
                             choose: choose == `${item.year}-${item.month}-${item.date}`&&item.isCurM,
                             nolm: !item.isCurM,
-                            today: isToday(item.year, item.month, item.date),
+                           
                             isWorkDay: isWorkDay(item.year, item.month, item.date)
                         }">
-						<view v-if="isToday(item.year, item.month, item.date)" class="jintian">
+						<!-- <view v-if="isToday(item.year, item.month, item.date)" class="jintian">
 							<text class="cnang">今天</text>
 							<text class="jihao">0场</text>
-						</view>
+						</view> -->
 
+						<!-- !isToday(item.year, item.month, item.date) && -->
+						<view v-if="choose == `${item.year}-${item.month}-${item.date}`&&item.isCurM" class="jintian">
+							1
 
-						<view v-if="!isToday(item.year, item.month, item.date) && choose == `${item.year}-${item.month}-${item.date}`&&item.isCurM"
-							class="jintian">
-							<view class="" v-if="value.length==0 || value==[]">
-								<text class="jtaa ">{{ Number(item.date) }}</text>
-								
-							</view>
-							<view class="" v-else>
-								<!-- <text class="jtaa" v-if="value.length === 0">{{ Number(item.date) }}</text> -->
-								<!-- <view class=""  > -->
-									<view  v-for="(arr, index) in value" :key="index" class="today dis_flex_c aic" v-if="arr.dataef==item.date">
-										<text class="cnang">{{ Number(item.date) }}</text>
-										<text>{{arr.num}}场</text>
-									</view>
-								<!-- </view> -->
-							</view>
-							<!-- <view class=""  v-for="(arr, index) in value" :key="index" v-else>
-								<view class="today dis_flex_c aic" v-if="arr.dataef==item.date">
+							<view class="" v-if="getshow(item.date)">
+								<view class="today dis_flex_c aic">
 									<text class="cnang">{{ Number(item.date) }}</text>
 									<text>{{arr.num}}场</text>
 								</view>
-							</view> -->
+								<!-- </view> -->
+							</view>
+							<view class="" v-else>
+								<text class="jtaa ">{{ Number(item.date) }}</text>
+
+							</view>
 						</view>
-						<view
-							v-if="!isToday(item.year, item.month, item.date) && choose != `${item.year}-${item.month}-${item.date}`&&item.isCurM">
-							<!-- <view class="" v-if="value.length==0">
-								<text class="jtaa">{{ Number(item.date) }}</text>
-							</view> -->
-							<view class="" >
-								<!-- <text class="cooo" v-for="(arr, index) in value" :key="index" v-if="arr.dataef==item.date ">{{ Number(item.date) }}</text> -->
-								<text class="jtaa">{{ Number(item.date) }}</text> 
+						<view v-if="choose != `${item.year}-${item.month}-${item.date}`&&item.isCurM">
+							0
+
+							<view class="" v-if="getshow(item.date)">
+								<view class=" dis_flex_c aic">
+									<text class="jtaa " style="color: #333;">{{ Number(item.date) }}</text>
+								</view>
+							</view>
+							<view class="" v-else>
+								<text class="jtaa ">{{ Number(item.date) }}</text>
 
 							</view>
 
@@ -112,7 +109,7 @@
 				type: Boolean,
 				default: false
 			},
-			value: {
+			dvalue: {
 				type: Array,
 				// default: function () { return [] }
 				default: () => {
@@ -134,12 +131,14 @@
 		},
 		onLoad() {
 			that = this
+
 		},
 		created() {
 			this.dates = this.monthDay(this.y, this.m);
 		},
 		mounted() {
 			this.choose = this.getToday().date;
+			console.log(this.dvalue)
 		},
 		computed: {
 			...mapState(['hasLogin', 'forcedLogin', 'userName', 'userinfo']),
@@ -154,6 +153,19 @@
 		},
 		methods: {
 			...mapMutations(['logout', 'login']),
+			getshow(date) {
+				var show_type = false
+				for (var s = 0; s < that.dvalue.length; s++) {
+
+
+					if (date == that.dvalue[s].dataef) {
+						show_type = true
+						// console.log('跳过'+a)
+					}
+
+				}
+				return show_type
+			},
 			getimg(img) {
 				return api.getimg(img)
 			},
@@ -318,7 +330,7 @@
 				}
 				this.dates = this.monthDay(this.y, this.m);
 				// console.log(this.dates, 'this.datesthis.dates')
-				console.log('--**--**--',this.value)
+				console.log('--**--**--', this.dvalue)
 			}
 		}
 	};
@@ -358,11 +370,13 @@
 		font-weight: 400;
 		color: rgba(51, 51, 51, 0.5);
 	}
-.jtaas {
-	font-size: 28rpx;
-	font-weight: 400;
-	color: rgba(51, 51, 51, 0.7);
-}
+
+	.jtaas {
+		font-size: 28rpx;
+		font-weight: 400;
+		color: rgba(51, 51, 51, 0.7);
+	}
+
 	.ccaa {
 		font-size: 24rpx;
 		font-weight: 400;

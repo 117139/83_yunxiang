@@ -96,7 +96,7 @@ var components
 try {
   components = {
     wangdingPickerAddress: function() {
-      return Promise.all(/*! import() | components/wangding-pickerAddress/wangding-pickerAddress */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/wangding-pickerAddress/wangding-pickerAddress")]).then(__webpack_require__.bind(null, /*! @/components/wangding-pickerAddress/wangding-pickerAddress.vue */ 385))
+      return Promise.all(/*! import() | components/wangding-pickerAddress/wangding-pickerAddress */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/wangding-pickerAddress/wangding-pickerAddress")]).then(__webpack_require__.bind(null, /*! @/components/wangding-pickerAddress/wangding-pickerAddress.vue */ 411))
     }
   }
 } catch (e) {
@@ -372,6 +372,7 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
       // 		})
       // 	}, 1000)
       // }
+
       var jkurl = '/user/address_add';
       var datas = {
         name: that.name,
@@ -406,7 +407,7 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
       // 单个请求
       _service.default.P_post(jkurl, datas).then(function (res) {
 
-        that.btn_kg = 0;
+
         console.log(res);
         if (res.code == 1) {
           var datas = res.data;
@@ -420,6 +421,7 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
             title: '提交成功' });
 
           setTimeout(function () {
+            that.btn_kg = 0;
             uni.navigateBack({
               delta: 1 });
 

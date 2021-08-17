@@ -491,9 +491,11 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
             // service.wxlogin()
 
             setTimeout(function () {
-              uni.redirectTo({
-                url: '/pagesA/My_order/My_order' });
-
+              that.btnkg = 0;
+              that.getdata();
+              // uni.redirectTo({
+              // 	url:'/pagesA/My_order/My_order'
+              // })
             }, 1000);
           });
         }

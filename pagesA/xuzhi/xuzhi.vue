@@ -1,5 +1,5 @@
 <template>
-	<view class="content ">
+	<view class="content p15">
 		<view class="data_last" >
 			{{datas}}
 		</view>

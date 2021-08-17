@@ -109,7 +109,7 @@ var components
 try {
   components = {
     uniNavBar: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar */ "uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.vue */ 335))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar */ "uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.vue */ 361))
     }
   }
 } catch (e) {
@@ -327,15 +327,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
 var _url = _interopRequireDefault(__webpack_require__(/*! ../../components/url.js */ 16));
 var _amapWx = _interopRequireDefault(__webpack_require__(/*! ../../common/amap-wx.js */ 12));
 var _service = _interopRequireDefault(__webpack_require__(/*! ../../service.js */ 8));
 
-var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Tabbar = function Tabbar() {__webpack_require__.e(/*! require.ensure | components/tabBar/tabBar */ "components/tabBar/tabBar").then((function () {return resolve(__webpack_require__(/*! ../../components/tabBar/tabBar.vue */ 286));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Scenery = function Scenery() {__webpack_require__.e(/*! require.ensure | components/scenery/scenery */ "components/scenery/scenery").then((function () {return resolve(__webpack_require__(/*! ../../components/scenery/scenery.vue */ 342));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Price = function Price() {__webpack_require__.e(/*! require.ensure | components/price/price */ "components/price/price").then((function () {return resolve(__webpack_require__(/*! ../../components/price/price.vue */ 349));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var that;
+var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Tabbar = function Tabbar() {__webpack_require__.e(/*! require.ensure | components/tabBar/tabBar */ "components/tabBar/tabBar").then((function () {return resolve(__webpack_require__(/*! ../../components/tabBar/tabBar.vue */ 288));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Scenery = function Scenery() {__webpack_require__.e(/*! require.ensure | components/scenery/scenery */ "components/scenery/scenery").then((function () {return resolve(__webpack_require__(/*! ../../components/scenery/scenery.vue */ 368));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Price = function Price() {__webpack_require__.e(/*! require.ensure | components/price/price */ "components/price/price").then((function () {return resolve(__webpack_require__(/*! ../../components/price/price.vue */ 375));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var that;
 
 
 
@@ -443,6 +439,7 @@ var gd_key = '2795d92b80135431505e618d657ce87f';var _default =
         that.btn_kg = 0;
         console.log(res);
         if (res.code == 1) {
+          console.log(that.$refs.htmlLoading);
           that.$refs.htmlLoading.htmlReset_fuc(0);
           var datas = res.data;
           console.log(typeof datas);

@@ -20,15 +20,16 @@
 		
 		
 		<view class="bottombtnbox">
-		   <view class="bottombtn" v-if="option.ok_type==1" @click='jump' :data-url="'/pagesA/qsxy/qsxy?id='+option.id"  :data-login="true" :data-haslogin="hasLogin">签署协议</view>
-		   <view class="bottombtn" v-else>我知道了</view>
+		   <view class="bottombtn" v-if="option.ok_type==1" @click='jump' :data-url="'/pagesA/qsxy/qsxy?id='+option.id"  :data-login="true" :data-haslogin="hasLogin" 
+		   :data-type="3">签署协议</view>
+		   <view class="bottombtn" v-else @click="back">我知道了</view>
 		  </view>
 	</view>
 </template>
 
 <script>
 	import api from '../../components/url.js';
-	   
+	 import service from '../../service.js';  
 	var that
 	import {
 		mapState,
@@ -45,16 +46,26 @@
 			that.option=JSON.parse(option.datas)
 			that.getdata()
 		},
+		computed: {
+			...mapState(['hasLogin'])
+		},
 		methods: {
 			...mapMutations(['logout', 'login']),
 			getimg(img) {
 				return service.getimg(img)
 			},
 			jump(e) {
-				return service.jump(e)
+				 service.jump(e)
 			
 			},
+			back() {
+				// setTimeout(function() {
+					wx.navigateBack({
+						delta: 1
+					})
+				// }, 1000)
 			}
+		}
 	}
 </script>
 

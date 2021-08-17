@@ -3,7 +3,8 @@
 	padding: 30rpx 19rpx;
 	width: 100%;
 	background: #FFFFFF;
-	box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+	-webkit-box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+	        box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
 	border-radius: 8rpx;
 	margin-top: 26rpx;
 }

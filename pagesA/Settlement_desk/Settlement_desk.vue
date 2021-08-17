@@ -173,11 +173,11 @@
 							icon: 'none',
 							title: '购买成功'
 						})
-						service.get_info()
+						// service.get_info()
 						setTimeout(() => {
 							uni.redirectTo({
 								// url:'/pagesA/OrderList/OrderList'
-								url:'/pagesA/My_order/My_order?type=5'
+								url:'/pagesA/My_order/My_order?currentIndex=0'
 							})
 						}, 1000)
 					}).catch(e => {
@@ -186,11 +186,9 @@
 							icon: 'none',
 							title: '微信支付失败'
 						})
-						// service.wxlogin()
-						
 						setTimeout(() => {
 							uni.redirectTo({
-								url:'/pagesA/My_order/My_order'
+								url:'/pagesA/My_order/My_order?currentIndex=0'
 							})
 						}, 1000)
 					})

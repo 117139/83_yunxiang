@@ -14,7 +14,7 @@ var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ 9));
 
 
 
-var _url = _interopRequireDefault(__webpack_require__(/*! ./components/url.js */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var avatar = function avatar() {Promise.all(/*! require.ensure | components/yq-avatar/yq-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/yq-avatar/yq-avatar")]).then((function () {return resolve(__webpack_require__(/*! ./components/yq-avatar/yq-avatar.vue */ 311));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Tabbar = function Tabbar() {__webpack_require__.e(/*! require.ensure | components/tabBar/tabBar */ "components/tabBar/tabBar").then((function () {return resolve(__webpack_require__(/*! ./components/tabBar/tabBar.vue */ 286));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _url = _interopRequireDefault(__webpack_require__(/*! ./components/url.js */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var avatar = function avatar() {Promise.all(/*! require.ensure | components/yq-avatar/yq-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/yq-avatar/yq-avatar")]).then((function () {return resolve(__webpack_require__(/*! ./components/yq-avatar/yq-avatar.vue */ 337));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Tabbar = function Tabbar() {__webpack_require__.e(/*! require.ensure | components/tabBar/tabBar */ "components/tabBar/tabBar").then((function () {return resolve(__webpack_require__(/*! ./components/tabBar/tabBar.vue */ 288));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -25,10 +25,10 @@ var _url = _interopRequireDefault(__webpack_require__(/*! ./components/url.js */
 
 // Vue.prototype.$url = url
 _vue.default.component('avatar', avatar);
-_vue.default.component('Tabbar', Tabbar);var htmlLoading = function htmlLoading() {__webpack_require__.e(/*! require.ensure | components/html_loading/html_loading */ "components/html_loading/html_loading").then((function () {return resolve(__webpack_require__(/*! @/components/html_loading/html_loading.vue */ 321));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+_vue.default.component('Tabbar', Tabbar);var htmlLoading = function htmlLoading() {__webpack_require__.e(/*! require.ensure | components/html_loading/html_loading */ "components/html_loading/html_loading").then((function () {return resolve(__webpack_require__(/*! @/components/html_loading/html_loading.vue */ 347));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
-_vue.default.component('htmlLoading', htmlLoading);var topbar = function topbar() {__webpack_require__.e(/*! require.ensure | components/top_bar/top_bar */ "components/top_bar/top_bar").then((function () {return resolve(__webpack_require__(/*! @/components/top_bar/top_bar.vue */ 328));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+_vue.default.component('htmlLoading', htmlLoading);var topbar = function topbar() {__webpack_require__.e(/*! require.ensure | components/top_bar/top_bar */ "components/top_bar/top_bar").then((function () {return resolve(__webpack_require__(/*! @/components/top_bar/top_bar.vue */ 354));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 _vue.default.component('topbar', topbar);
 
@@ -127,6 +127,11 @@ var gd_key = '2795d92b80135431505e618d657ce87f';var _default =
     uni.hideTabBar({
       animation: false });
 
+    var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJhdWQiOiJZXyIsImlhdCI6MTYyNzg4MjgwOCwibmJmIjoxNjI3ODgyODA4LCJleHAiOjE2Mjc4OTAwMDh9.7U3xJHbEZxV_bTs_SrxucaWU6CEpxU9K9QMqFlEkXew';
+
+
+
+
     uni.getSystemInfo({
       success: function success(e) {
 
@@ -166,7 +171,12 @@ var gd_key = '2795d92b80135431505e618d657ce87f';var _default =
       } });
 
     // wx.onLocationChange(_locationChangeFn)
-    _service.default.wxlogin();
+
+    if (uni.getStorageSync('token')) {
+      _service.default.wxlogin('token');
+    } else {
+      _service.default.wxlogin();
+    }
 
     // uni.setStorageSync('token','eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJhdWQiOiJZXyIsImlhdCI6MTYyNTEwMjEzOCwibmJmIjoxNjI1MTAyMTM4LCJleHAiOjE2MjUxMDkzMzh9.nXB2nkRcvx6gcngv30HT1irDFdS_8lbXPzn6oh7uf-E')
     // if(uni.getStorageSync('token')){

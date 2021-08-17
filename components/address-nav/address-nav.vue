@@ -1,9 +1,9 @@
 <template>
 	<view class="address-nav">
-		<view class="address-nav-item" v-for="(item,index) in addressNav" :key="index" @click="jump" :data-url="'/pagesA/shopType/shopType?id='+ item.id+'&text='+item.title">
-			<view class="img">
-				<image :src="getimg(item.img_url)" mode="aspectFill"></image>
-			</view>
+		<view class="address-nav-item  mt20" v-for="(item,index) in addressNav" :key="index" @click="jump" :data-url="'/pagesA/shopType/shopType?id='+ item.id+'&text='+item.title">
+			<!-- <view class="img"> -->
+				<image :src="getimg(item.img_url)" class="img" mode="aspectFill"></image>
+			<!-- </view> -->
 			<view class="text">
 				<text>{{ item.title }}</text>
 			</view>
@@ -70,21 +70,21 @@
 			display: flex;
 			flex-direction: column;
 			box-sizing: border-box;
-			padding: 59rpx 0 0rpx 0;
+			// padding: 59rpx 0 0rpx 0;
 			text-align: center;
 			
 
 			.img {
 				width: 100%;
-				height: 80rpx;
+				height: 80rpx!important;
 				box-sizing: border-box;
 				padding: 0 46rpx;
 				margin-bottom: 20rpx;
 
-				image {
-					width: 100%;
-					height: 100%;
-				}
+				// image {
+				// 	width: 100%;
+				// 	height: 100%;
+				// }
 			}
 
 			.text {

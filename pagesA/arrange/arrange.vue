@@ -1,8 +1,36 @@
 <template>
 	<view>
 		<view class="box">
-			<Recommend :shuju='shuju'></Recommend>
-			
+			<!-- <Recommend :shuju='shuju'></Recommend> -->
+			<view class="recommend dis_flex" >
+				
+				<image :src="getimg_fuc(shuju.first_img)" mode="aspectFill" v-show="!isgoods"></image>
+				<image :src="getimg_fuc('/static_xcx/index/goods.png')" mode="aspectFill" v-show="isgoods"></image>
+				<view class="recommendR">
+					<text class="oh2">{{shuju.title}}</text>
+					<view class="heat pt10" v-show="!isgoods">
+						<Heat></Heat>
+					</view>
+					<view class="heat" v-show="isgoods" style="height: 40rpx;"></view>
+					<view class="price dis_flex aic  ju_b pt20">
+						<view class="g_price">
+							<text>￥</text>
+							<text class="big">
+								{{shuju.price}}
+							</text>
+							<text class="color_h" v-show="yyxq != 'yyxq'">元</text>
+						</view>
+						<view class="">
+							<view class="heat" v-show="isgoods" style="height: 40rpx;"></view>
+							<view class="pr_dw" v-show="!isgoods">
+								<image :src="getimg_fuc('/static_xcx/index/dw2.png')" mode="aspectFill"></image>
+								<text>{{shuju.province}}{{shuju.county}}</text>
+							</view>
+						</view>
+						
+					</view>
+				</view>
+			</view>
 			<view class="xxbox dis_flex_c ju_a">
 				<view class="dis_flex ju_b aic">
 					<view class="xxtitstyle">出发时间</view>
@@ -11,12 +39,12 @@
 						<image class="intoimg" :src="getimg_fuc('/static_xcx/index/into.png')" mode="aspectFit"></image>
 					</view> -->
 					
+					<text class="cfsjtime">{{shuju.start_times}}</text>
 					
-					
-					 <picker class="dis_flex aic" mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
+					<!-- <picker class="dis_flex aic" mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
 						<text class="cfsjtime">{{date}}</text>
 						<image class="intoimg" :src="getimg_fuc('/static_xcx/index/into.png')" mode="aspectFit"></image>  
-					</picker>
+					</picker> -->
 					
 					
 					
@@ -47,9 +75,28 @@
 				</view>
 			</view>
 			
-			<view class="xxbox xxbox2">
-				<view  class="" v-for="arr,index in shuju.more_content_arr" :key="index">
-					<text> {{arr.title}}</text>
+			<block v-for="(item,index) in info">
+					<view class="xxbox dis_flex_c ju_a">
+						<view class="dis_flex ju_b aic">
+							<view class="xxtitstyle">姓名</view>
+							<input class="flex_1 tar int_moren" type="text" v-model="item.name" placeholder="请输入预约人的姓名">
+						</view>
+						<view class="dis_flex ju_b aic">
+							<view class="xxtitstyle">手机号</view>
+							<input class="flex_1 tar int_moren" type="number"  v-model="item.phone" placeholder="请输入预约人的手机号">
+							
+						</view>
+						<view class="dis_flex ju_b aic">
+							<view class="xxtitstyle">身份证</view>
+							<input class="flex_1 tar int_moren" type="text"  v-model="item.IdCard" placeholder="请输入预约人的身份证">
+						</view>
+					</view>
+			</block>
+			<view class="xxbox xxbox2" v-for="arr,index in shuju.more_content_arr" :key="index">
+				<view class="remindertit pb10">
+					{{arr.title}}
+				</view>
+				<view  class="fs12" >
 					<text> {{arr.content}}</text>
 				</view>
 			</view>
@@ -63,7 +110,7 @@
 		</view>
 		
 		<view class="okbtnbox">
-			<view class="okbtn" @click='tiaozhuan' data-url='../pay/pay' :data-shifou='false'>
+			<view class="okbtn" @click='zf_tip' >
 				确认订单
 			</view>
 		</view>
@@ -90,6 +137,7 @@
 	// box
 	import api from '../../components/url.js';
 	   import service from '../../service.js';
+	   import Heat from "../../components/heat/heat.vue"
 	// 底部  tabbar
 	// import Tabbar from '../../components/tabBar/tabBar.vue'
 	var that
@@ -103,7 +151,7 @@
 		components: {
 			Recommend,
 			Price,
-			// yuDatetimePicker
+			Heat
 		},
 		data() {
 			const currentDate = this.getDate({
@@ -117,6 +165,13 @@
 				numval: 1,
 				time: '请选择',
 				monder:'',
+				info:[
+					{
+						name:'',
+						phone:'',
+						IdCard:'',
+					}
+				]
 			}
 		},
 		onReady() {
@@ -213,7 +268,8 @@
 			jian(){
 				if (this.numval > 1) {
 					this.numval--
-					that.getdatas()
+					// that.getdatas()
+					that.info.pop()
 				} else {
 					uni.showToast({
 						title: '再减就没有商品啦',
@@ -223,7 +279,39 @@
 			},
 			numvals() {
 				that.numval++
-				that.getdatas()
+				var info_new={
+					name:'',
+					phone:'',
+					IdCard:'',
+				}
+				that.info.push(info_new)
+				// that.getdatas()
+			},
+			zf_tip(){
+				if(!that.showxz){
+					uni.showToast({
+						icon:'none',
+						title:'请先阅读服务协议'
+					})
+					return
+				}
+				var usermsg=true
+				for(var i=0;i<that.info.length;i++){
+					if(!that.info[i].name||!that.info[i].phone||!that.info[i].IdCard){
+						usermsg=false
+					}
+				}
+				if(!usermsg){
+					uni.showToast({
+						icon:'none',
+						title:'请先填写预约人的信息'
+					})
+					return
+				}
+				uni.setStorageSync('yy_info',that.info)
+				uni.navigateTo({
+					url:'../pay/pay?id='+that.shuju.id+'&num='+that.numval+'&monder='+that.monder
+				})
 			}
 		}
 	}
@@ -319,9 +407,11 @@
 		width: 100%;
 		text-align: center;
 		position: fixed;
-		bottom: 140rpx;
-		padding-bottom: constant(safe-area-inset-bottom);
-		padding-bottom: env(safe-area-inset-bottom);
+		bottom: 120rpx;
+		padding-top: 10upx;
+		padding-bottom: calc(20upx + constant(safe-area-inset-bottom));
+		padding-bottom: calc(20upx + env(safe-area-inset-bottom));
+		background: #fff;
 	}
 	.agree text{
 		font-size: 24rpx;
@@ -382,6 +472,60 @@
 		font-size: 22rpx;
 		font-weight: bold;
 		color: #1961B6;
+	}
+	.big{
+		font-size: 40rpx;
+	}
+	.color_h{
+		padding-left: 5rpx;
+		font-weight: 400;
+		color: #333333;
+	}
+	.recommend{
+		padding: 30rpx 19rpx;
+		width: 100%;
+		background: #FFFFFF;
+		box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+		border-radius: 8rpx;
+		margin-top: 26rpx;
+	}
+	.recommend>image{
+		width: 200rpx;
+		height: 200rpx;
+		flex-shrink: 0;
+	}
+	.recommendR{
+		margin-left: 27rpx;
+	}
+	.recommendR>text{
+		font-size: 28rpx;
+		font-weight: bold;
+		color: #333333;
+	}
+	.heat{
+		margin-top: 5rpx;
+	}
+	.pr_dw{
+		padding-bottom: 4rpx;
+	}
+	.pr_dw>image{
+		width: 17rpx;
+		height: 19rpx;
+		vertical-align: middle;
+	}
+	.pr_dw>text{
+		font-size: 22rpx;
+		font-weight: 400;
+		color: #666666;
+		margin-left: 7rpx;
+	}
+	.g_price{
+		font-size: 22rpx;
+		font-weight: bold;
+		color: #1961B6;
+	}
+	.price {
+		    width: 420rpx;
 	}
 	.big{
 		font-size: 40rpx;

@@ -11,12 +11,14 @@
 }
 .mian {
 	background: #FFFFFF;
-	box-shadow: 0px 10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+	-webkit-box-shadow: 0px 10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+	        box-shadow: 0px 10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
 	border-radius: 8rpx;
 }
 .dizhis {
 	background: #FFFFFF;
-	box-shadow: 0px 10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+	-webkit-box-shadow: 0px 10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+	        box-shadow: 0px 10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
 	border-radius: 8rpx;
 }
 .jian {
@@ -31,7 +33,8 @@
 .fun {
 	width: 750rpx;
 	height: 130rpx;
-	box-shadow: 0px -10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+	-webkit-box-shadow: 0px -10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+	        box-shadow: 0px -10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
 }
 page {
 	background-color: #fff;

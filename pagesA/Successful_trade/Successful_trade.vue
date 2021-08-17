@@ -24,7 +24,7 @@
 						<view class="flex flex-col">
 							<view class="flex align-items-center flex-between">
 								<text class="oh1 fs14 fwb" style="width: 340rpx; height: 40rpx;">{{item.goods_title}}</text>
-								<view class="c9  ">
+								<view class="c9  flex_0">
 									<text class="fs12">￥</text>
 									<text class="fs14">{{item.price}}</text>
 								</view>
@@ -330,9 +330,11 @@
 							// service.wxlogin()
 							
 							setTimeout(() => {
-								uni.redirectTo({
-									url:'/pagesA/My_order/My_order'
-								})
+								that.btnkg=0
+								that.getdata()
+								// uni.redirectTo({
+								// 	url:'/pagesA/My_order/My_order'
+								// })
 							}, 1000)
 						})
 					}

@@ -5,6 +5,7 @@
   "navigationBarTextStyle": "black",
   "usingComponents": {
     "recommend": "/components/recommend/recommend",
-    "price": "/components/price/price"
+    "price": "/components/price/price",
+    "heat": "/components/heat/heat"
   }
 }

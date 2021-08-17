@@ -115,7 +115,7 @@
 			<view class="flex flex-between align-items-center pl15 pr15 pb12 pt15" @tap='jump'
 				data-url='/pagesA/kefu/kefu?id=2'  :data-login="false" :data-haslogin="hasLogin">
 				<view class="flex align-items-center">
-					<image :src="getimg('/static_xcx/women.png')" mode="aspectFit" class="kefu "></image>
+					<image :src="getimg('/static_xcx/women.png')" lazy-load='true' mode="aspectFit" class="kefu "></image>
 					<text class="fs13 pl10">关于我们</text>
 				</view>
 				<image :src="getimg('/static_xcx/fanh.png')" mode="aspectFit"
@@ -124,16 +124,16 @@
 			<view class="flex flex-between align-items-center pl15 pr15 pb12 pt15" @tap='jump'
 				data-url='/pagesA/kefu/kefu?id=3'  :data-login="false" :data-haslogin="hasLogin">
 				<view class="flex align-items-center">
-					<image :src="getimg('/static_xcx/yinsi.png')" mode="aspectFit" class="kefu "></image>
+					<image :src="getimg('/static_xcx/yinsi.png')" lazy-load='true' mode="aspectFit" class="kefu "></image>
 					<text class="fs13 pl10">隐私政策</text>
 				</view>
-				<image :src="getimg('/static_xcx/fanh.png')" mode="aspectFit"
+				<image :src="getimg('/static_xcx/fanh.png')" lazy-load='true' mode="aspectFit"
 					style="width: 11rpx; height: 20rpx; margin-left: 18rpx;"></image>
 			</view>
 			<view class="flex flex-between align-items-center pl15 pr15 pb12 pt15" @tap='jump'
 				data-url='/pagesA/kefu/kefu?id=4'  :data-login="false" :data-haslogin="hasLogin">
 				<view class="flex align-items-center">
-					<image :src="getimg('/static_xcx/xieyi.png')" mode="aspectFit" class="kefu "></image>
+					<image :src="getimg('/static_xcx/xieyi.png')" lazy-load='true' mode="aspectFit" class="kefu "></image>
 					<text class="fs13 pl10">用户协议</text>
 				</view>
 				<image :src="getimg('/static_xcx/fanh.png')" mode="aspectFit"
