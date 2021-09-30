@@ -66,6 +66,14 @@
 						ti: '预约失败',
 						id: 3
 					},
+					{
+						ti: '待退款',
+						id: 4
+					},
+					{
+						ti: '已退款',
+						id: 5
+					},
 				],
 
 				xiang: [
@@ -79,7 +87,8 @@
 				show: false,
 
 				page:1,
-				data_last:false
+				data_last:false,
+				shownum:0
 			}
 		},
 		computed: {
@@ -88,6 +97,12 @@
 		onLoad() {
 			that = this
 			that.onRetry()
+		},
+		onShow() {
+			if(that.shownum>0){
+				that.onRetry()
+			}
+			that.shownum++
 		},
 		onPullDownRefresh() {
 			that.onRetry()

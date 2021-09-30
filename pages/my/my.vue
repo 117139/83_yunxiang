@@ -88,10 +88,12 @@
 				<text class="fs13 pt8">已完成</text>
 			</view>
 			<!-- <view class="flex-1 flex align-items-center justify-center flex-col" @tap='jump'
-				data-url='/pagesA/Successful_trades/Successful_trades'  :data-login="true" :data-haslogin="hasLogin">
+				data-url='/pagesA/Successful_trades/Successful_trades'  :data-login="true" :data-haslogin="hasLogin"> -->
+			<view class="flex-1 flex align-items-center justify-center flex-col" @tap='jump'
+				data-url='/pagesA/My_order/My_order?currentIndex=4'  :data-login="true" :data-haslogin="hasLogin">
 				<image :src="getimg('/static_xcx/tuihuanh.png')" mode="aspectFit" class="dai"></image>
-				<text class="fs13 pt8">退换货</text>
-			</view> -->
+				<text class="fs13 pt8">售后</text>
+			</view>
 		</view>
 		<view class="">
 			<view class="flex flex-between align-items-center pl15 pr15 pb12 pt15" @tap='jump'

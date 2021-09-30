@@ -236,6 +236,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _url = _interopRequireDefault(__webpack_require__(/*! ../../components/url.js */ 16));
 
 var _service = _interopRequireDefault(__webpack_require__(/*! ../../service.js */ 8));
@@ -265,7 +279,31 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
 
       {
         ti: '已完成',
-        id: 5 }],
+        id: 5 },
+
+      {
+        ti: '待退款',
+        id: 7 },
+
+      {
+        ti: '已退款',
+        id: 8 },
+
+      {
+        ti: '待退货',
+        id: 9 },
+
+      {
+        ti: '同意退货',
+        id: 10 },
+
+      {
+        ti: '退货中',
+        id: 11 },
+
+      {
+        ti: '已退货',
+        id: 12 }],
 
 
 
@@ -274,8 +312,8 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
       status: 2,
       datas: [],
       page: 1,
-      data_last: false };
-
+      data_last: false,
+      shownum: 0 };
 
   },
   computed: _objectSpread({},
@@ -294,7 +332,12 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
     that.index = option.index;
     that.onRetry();
   },
-
+  onShow: function onShow() {
+    if (that.shownum > 0) {
+      that.onRetry();
+    }
+    that.shownum++;
+  },
   onPullDownRefresh: function onPullDownRefresh() {
     that.onRetry();
   },

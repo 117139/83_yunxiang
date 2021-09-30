@@ -35,12 +35,18 @@
 						<text class="color_h" v-show="yyxq != 'yyxq'">元</text>
 					</view>
 				</view>
+				<view class="dis_flex aife">
+					<view class="g_price">
+						<text class="texts kfsj">预约人数</text>
+						<text class="color_h">{{shuju.order_number}}</text>
+					</view>
+				</view>
 
 				<view class="dis_flex ju_b">
 					<view>
 						<text class="texts kfsj">开放时间</text>
 						<text class="texts">{{shuju.open_time}}</text>
-						<text class="texts tzjr">17:00停止进入</text>
+						<!-- <text class="texts tzjr">17:00停止进入</text> -->
 					</view>
 					<view>
 						<text class="texts gfxz" @click='tiaozhuan'

@@ -1,15 +1,19 @@
 
 .fu {
-	width: 178rpx;
+	min-width: 90rpx;
 	height: 60rpx;
 	border: 1px solid #EB4C50;
 	border-radius: 30rpx;
+	margin: 6rpx;
+	padding: 0 12rpx;
 }
 .quxiao {
-	width: 178rpx;
+	min-width: 90rpx;
 	height: 60rpx;
 	border: 1px solid #666666;
 	border-radius: 30rpx;
+	margin: 6rpx;
+	padding: 0 12rpx;
 }
 .img {
 	width: 200rpx;
@@ -21,8 +25,7 @@
 }
 .shuju {
 	background: #FFFFFF;
-	-webkit-box-shadow: 0px 10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
-	        box-shadow: 0px 10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+	box-shadow: 0px 10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
 	border-radius: 8px;
 }
 page {
@@ -73,6 +76,9 @@ page {
 	margin-top: 18rpx;
 }
 .fuwu {
+	display: -webkit-inline-box;
+	display: -webkit-inline-flex;
+	display: inline-flex;
 	text-align: center;
 	font-size: 30rpx;
 	font-family: PingFang;
@@ -88,6 +94,7 @@ page {
 	-webkit-flex-direction: column;
 	        flex-direction: column;
 	color: #000;
+	padding: 0 10rpx;
 }
 .harder {
 	width: 100%;
@@ -98,6 +105,7 @@ page {
 	left: 0;
 	right: 0;
 	z-index: 900;
+	box-sizing: border-box;
 }
 .order_name{
 	font-size: 22rpx;
@@ -105,5 +113,10 @@ page {
 	width: 300rpx;
 	height: 40rpx;
 	line-height: 40rpx;
+}
+.btn_box{
+	max-width: 50%;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
 }
 

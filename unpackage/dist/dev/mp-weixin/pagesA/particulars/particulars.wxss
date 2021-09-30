@@ -5,8 +5,7 @@
 .signup.data-v-87d4cf2e {
 	margin: 26rpx 0;
 	padding: 23rpx 19rpx;
-	-webkit-box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
-	        box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+	box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
 	border-radius: 8rpx;
 }
 .intoimg.data-v-87d4cf2e {
@@ -124,8 +123,7 @@
 .bottombox.data-v-87d4cf2e {
 	padding: 0 35rpx 39rpx;
 	background: #FDFDFD;
-	-webkit-box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.1);
-	        box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.1);
+	box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.1);
 	border-radius: 8rpx;
 	margin-bottom: 120rpx;
 }
@@ -183,8 +181,7 @@
 	padding-bottom: 0;
 	padding-bottom: constant(safe-area-inset-bottom);
 	padding-bottom: env(safe-area-inset-bottom);
-	-webkit-box-shadow: 0rpx -10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
-	        box-shadow: 0rpx -10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+	box-shadow: 0rpx -10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
 }
 .aaaaaa.data-v-87d4cf2e {
 	height: 120rpx;
@@ -214,8 +211,7 @@
 }
 .mc_txts.data-v-87d4cf2e {
 	margin-top: 20rpx;
-	-webkit-box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
-	        box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+	box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
 	border-radius: 8rpx;
 	position: relative;
 	padding-bottom: 20rpx;

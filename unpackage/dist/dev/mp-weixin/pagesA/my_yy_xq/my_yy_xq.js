@@ -255,6 +255,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _url = _interopRequireDefault(__webpack_require__(/*! ../../components/url.js */ 16));
 var _service = _interopRequireDefault(__webpack_require__(/*! ../../service.js */ 8));
 
@@ -310,6 +325,77 @@ var that;var Recommend = function Recommend() {__webpack_require__.e(/*! require
 
   methods: _objectSpread(_objectSpread({},
   (0, _vuex.mapMutations)(['logout', 'login'])), {}, {
+    tuikuan: function tuikuan(item) {
+      ///order/activity_refund
+      uni.showModal({
+        title: '提示',
+        content: '确定要申请退款吗',
+        success: function success(res) {
+          if (res.confirm) {
+            var jkurl = '/order/activity_refund';
+            var data = {
+              code: item.code,
+              type: 1 };
+
+            if (that.btn_kg == 1) {
+              return;
+            }
+            that.btn_kg = 1;
+            _service.default.P_post(jkurl, data).then(function (res) {
+              console.log(res);
+              if (res.code == 1) {
+                // that.$refs.htmlLoading.htmlReset_fuc(0)
+                var datas = res.data;
+                console.log(typeof datas);
+
+                if (typeof datas == 'string') {
+                  datas = JSON.parse(datas);
+                }
+                uni.showToast({
+                  title: '退款申请已提交，请耐心等待审核',
+                  icon: 'none' });
+
+                setTimeout(function () {
+                  that.btn_kg = 0;
+                  that.getdatas();
+                }, 1000);
+
+              } else {
+
+                that.btn_kg = 0;
+                // that.$refs.htmlLoading.htmlReset_fuc(1)
+                if (res.msg) {
+                  uni.showToast({
+                    icon: 'none',
+                    title: res.msg });
+
+                } else {
+                  uni.showToast({
+                    icon: 'none',
+                    title: '获取失败' });
+
+                }
+              }
+            }).catch(function (e) {
+              that.btn_kg = 0;
+
+              // that.$refs.htmlLoading.htmlReset_fuc(1)
+              console.log(e);
+              uni.showToast({
+                icon: 'none',
+                title: '系统错误' });
+
+            });
+
+          } else if (res.cancel) {
+            // uni.showToast({
+            // 	title: '取消订单失败',
+            // 	icon: 'none',
+            // });
+          }
+        } });
+
+    },
     getimg_fuc: function getimg_fuc(img) {
       return _url.default.getimg(img);
     },

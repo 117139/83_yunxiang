@@ -519,6 +519,7 @@
 			bindPickerChange: function(e) {
 				// console.log('picker发送选择改变，携带值为', e.target.value)
 				this.indexs = e.target.value
+				this.index = that.array[e.target.value].id
 				that.getdatas()
 			},
 			getdatas() {
@@ -550,7 +551,7 @@
 						// if (page_now == 1) {
 
 						that.shuju = datas.data
-
+						that.getdata()
 						// } else {
 						// if (datas.data.length == 0) {
 						// that.data_last = true

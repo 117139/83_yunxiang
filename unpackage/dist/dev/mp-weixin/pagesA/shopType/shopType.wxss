@@ -27,8 +27,7 @@
 /* 透明度 */
 /* 文章场景相关 */
 .shopType.data-v-035bfdab {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 0 30rpx;
 }
 .shopType .status_title.data-v-035bfdab {
@@ -80,12 +79,10 @@
   width: 690rpx;
   height: 256rpx;
   margin-top: 45rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 29rpx 25rpx 27rpx 19rpx;
   background: #FFFFFF;
-  -webkit-box-shadow: 0px 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
-          box-shadow: 0px 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+  box-shadow: 0px 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
   border-radius: 8rpx;
   margin-bottom: 26rpx;
 }
@@ -107,8 +104,7 @@
 .shopType .shopType-body .shopType-body-item .shopType-body-item-right.data-v-035bfdab {
   width: 471rpx;
   height: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding-left: 28rpx;
   padding-top: 7rpx;
 }
@@ -155,8 +151,7 @@
   -webkit-justify-content: center;
           justify-content: center;
   margin-right: 21rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 6rpx 17rpx;
 }
 .shopType .shopType-body .shopType-body-item .shopType-body-item-right .shopType-body-item-right-third-line.data-v-035bfdab {

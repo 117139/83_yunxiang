@@ -54,7 +54,9 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
   onPullDownRefresh: function onPullDownRefresh() {
     that.onRetry();
   },
+
   onReachBottom: function onReachBottom() {
+    console.log('触底');
     that.getdata();
   },
   methods: _objectSpread(_objectSpread({},
@@ -125,7 +127,7 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
           }
         }
       }).catch(function (e) {
-
+        that.btn_kg = 0;
         that.$refs.htmlLoading.htmlReset_fuc(1);
         console.log(e);
         uni.showToast({

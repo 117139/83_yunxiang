@@ -35,8 +35,7 @@ canvas {
 .contents {
 	padding-top: 20rpx;
 	padding-bottom: 100rpx;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 #signatureImg {
 	background-color: #EEEEEE;
@@ -50,8 +49,7 @@ canvas {
 	padding-bottom: constant(safe-area-inset-bottom);
 	padding-bottom: env(safe-area-inset-bottom);
 	background: #FFFFFF;
-	-webkit-box-shadow: 0rpx -10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
-	        box-shadow: 0rpx -10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+	box-shadow: 0rpx -10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
 }
 .bottombtn{
 	margin: 20rpx auto;

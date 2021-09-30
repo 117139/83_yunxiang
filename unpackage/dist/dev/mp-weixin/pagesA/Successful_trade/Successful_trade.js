@@ -266,6 +266,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _url = _interopRequireDefault(__webpack_require__(/*! ../../components/url.js */ 16));
 var _service = _interopRequireDefault(__webpack_require__(/*! ../../service.js */ 8));
 
@@ -277,7 +293,9 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
   data: function data() {
     return {
       id: '',
-      datas: '' };
+      datas: '',
+      tk_wl: '',
+      tk_wldh: '' };
 
   },
   computed: _objectSpread({},
@@ -432,7 +450,225 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
 
 
     },
+    tuikuan: function tuikuan(item) {
+      uni.showModal({
+        title: '提示',
+        content: '确定申请退款吗',
+        success: function success(res) {
+          if (res.confirm) {
+            var jkurl = '/order/refund';
+            var data = {
+              code: item.code,
+              type: 1,
+              content: '申请退款' };
 
+            if (that.btn_kg == 1) {
+              return;
+            }
+            that.btn_kg = 1;
+            _service.default.P_post(jkurl, data).then(function (res) {
+              console.log(res);
+              if (res.code == 1) {
+                // that.$refs.htmlLoading.htmlReset_fuc(0)
+                var datas = res.data;
+                console.log(typeof datas);
+
+                if (typeof datas == 'string') {
+                  datas = JSON.parse(datas);
+                }
+                uni.showToast({
+                  title: '申请提交成功，请耐心等待后台审核',
+                  icon: 'none' });
+
+                setTimeout(function () {
+                  that.btn_kg = 0;
+                  that.getdata();
+                }, 1000);
+
+              } else {
+
+                that.btn_kg = 0;
+                // that.$refs.htmlLoading.htmlReset_fuc(1)
+                if (res.msg) {
+                  uni.showToast({
+                    icon: 'none',
+                    title: res.msg });
+
+                } else {
+                  uni.showToast({
+                    icon: 'none',
+                    title: '获取失败' });
+
+                }
+              }
+            }).catch(function (e) {
+              that.btn_kg = 0;
+
+              // that.$refs.htmlLoading.htmlReset_fuc(1)
+              console.log(e);
+              uni.showToast({
+                icon: 'none',
+                title: '系统错误' });
+
+            });
+
+          } else if (res.cancel) {
+            // uni.showToast({
+            // 	title: '取消订单失败',
+            // 	icon: 'none',
+            // });
+          }
+        } });
+
+    },
+    tuihuo: function tuihuo(item) {
+      uni.showModal({
+        title: '提示',
+        content: '确定申请退货吗',
+        success: function success(res) {
+          if (res.confirm) {
+            var jkurl = '/order/refund';
+            var data = {
+              code: item.code,
+              type: 2,
+              content: '申请退货' };
+
+            if (that.btn_kg == 1) {
+              return;
+            }
+            that.btn_kg = 1;
+            _service.default.P_post(jkurl, data).then(function (res) {
+              console.log(res);
+              if (res.code == 1) {
+                // that.$refs.htmlLoading.htmlReset_fuc(0)
+                var datas = res.data;
+                console.log(typeof datas);
+
+                if (typeof datas == 'string') {
+                  datas = JSON.parse(datas);
+                }
+                uni.showToast({
+                  title: '申请提交成功，请耐心等待后台审核',
+                  icon: 'none' });
+
+                setTimeout(function () {
+                  that.btn_kg = 0;
+                  that.getdata();
+                }, 1000);
+
+              } else {
+
+                that.btn_kg = 0;
+                // that.$refs.htmlLoading.htmlReset_fuc(1)
+                if (res.msg) {
+                  uni.showToast({
+                    icon: 'none',
+                    title: res.msg });
+
+                } else {
+                  uni.showToast({
+                    icon: 'none',
+                    title: '获取失败' });
+
+                }
+              }
+            }).catch(function (e) {
+              that.btn_kg = 0;
+
+              // that.$refs.htmlLoading.htmlReset_fuc(1)
+              console.log(e);
+              uni.showToast({
+                icon: 'none',
+                title: '系统错误' });
+
+            });
+
+          } else if (res.cancel) {
+            // uni.showToast({
+            // 	title: '取消订单失败',
+            // 	icon: 'none',
+            // });
+          }
+        } });
+
+    },
+    tuihuoxx: function tuihuoxx(item) {
+      var jkurl = '/order/re_goods';
+      if (!that.tk_wl) {
+        uni.showToast({
+          icon: 'none',
+          title: '请输入退款快递公司' });
+
+        return;
+      }
+      if (!that.tk_wldh) {
+        uni.showToast({
+          icon: 'none',
+          title: '请输入退款快递单号' });
+
+        return;
+      }
+      var data = {
+        code: item.code,
+        tui_company: that.tk_wl,
+        tui_code: that.tk_wldh };
+
+      if (that.btn_kg == 1) {
+        return;
+      }
+      that.btn_kg = 1;
+      _service.default.P_post(jkurl, data).then(function (res) {
+        console.log(res);
+        if (res.code == 1) {
+          // that.$refs.htmlLoading.htmlReset_fuc(0)
+          var datas = res.data;
+          console.log(typeof datas);
+
+          if (typeof datas == 'string') {
+            datas = JSON.parse(datas);
+          }
+          uni.showToast({
+            title: '提交成功',
+            icon: 'none' });
+
+          setTimeout(function () {
+            that.btn_kg = 0;
+            that.getdata();
+          }, 1000);
+          // setTimeout(function(){
+          // that.btn_kg = 0
+          // 	that.onRetry()
+          // },1000)
+
+        } else {
+
+          that.btn_kg = 0;
+          // that.$refs.htmlLoading.htmlReset_fuc(1)
+          if (res.msg) {
+            uni.showToast({
+              icon: 'none',
+              title: res.msg });
+
+          } else {
+            uni.showToast({
+              icon: 'none',
+              title: '获取失败' });
+
+          }
+        }
+      }).catch(function (e) {
+        that.btn_kg = 0;
+
+        // that.$refs.htmlLoading.htmlReset_fuc(1)
+        console.log(e);
+        uni.showToast({
+          icon: 'none',
+          title: '系统错误' });
+
+      });
+
+
+    },
     pay: function pay() {
       if (that.btnkg == 1) {
         return;
@@ -551,6 +787,18 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
             that.title = '交易成功';
           } else if (datas.type == 6) {
             that.title = '订单已取消';
+          } else if (datas.type == 7) {
+            that.title = '待退款';
+          } else if (datas.type == 8) {
+            that.title = '已退款';
+          } else if (datas.type == 9) {
+            that.title = '待退货';
+          } else if (datas.type == 10) {
+            that.title = '同意退货';
+          } else if (datas.type == 11) {
+            that.title = '退货中';
+          } else if (datas.type == 12) {
+            that.title = '已退货';
           }
 
 

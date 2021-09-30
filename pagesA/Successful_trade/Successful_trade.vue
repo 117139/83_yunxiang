@@ -78,6 +78,13 @@
 						<text class="c9 fs13" style="width: 200rpx;">订单完成时间：</text>
 						<text class="c9 fs13">{{gettime(datas.over_time)}} </text>
 					</view>
+					<input v-if="datas.type==10" class="tk_wl" type="text"  v-model="tk_wl"  placeholder="请输入退货快递公司"/>
+					<input v-if="datas.type==10" class="tk_wl" type="text"  v-model="tk_wldh"  placeholder="请输入退货快递单号"/>
+				</view>
+				<view class="fun " style="opacity: 0;position: relative;">
+					<view class="fu flex aic ju_c fs12 dai fs12 ml12 mb10"  >
+						取消订单
+					</view>
 				</view>
 				<view class="fun fixed bottom">
 					<view class="flex flex-right  pr15 ">
@@ -87,11 +94,20 @@
 						<view v-if="datas.type==1" class="fu flex aic ju_c fs12 dai fs12 ml12 mb10" @click='pay' :data-url="'../Settlement_desk/Settlement_desk?code='+datas.code" :data-shifou='true'>
 							付款
 						</view>
-						<view v-if="datas.type>2&&datas.type!= 6"  @tap="jump" :data-url=" '../order_wuliu/order_wuliu?code='+datas.code" class="quxiao flex aic ju_c fs12  mb10">
+						<view v-if="datas.type>2&&datas.type< 6"  @tap="jump" :data-url=" '../order_wuliu/order_wuliu?code='+datas.code" class="quxiao flex aic ju_c fs12  mb10">
 							查看物流
 						</view>
 						<view v-if="datas.type==3" class="fu flex aic ju_c fs12 dai fs12 ml12 mb10" @click="shouhuo(datas)">
 							确认收货
+						</view>
+						<view v-if="datas.type==2" class="fu flex aic ju_c fs12 dai fs12 ml12 mb10" @click="tuikuan(datas)">
+							退款
+						</view>
+						<view v-if="datas.type==5" class="fu flex aic ju_c fs12 dai fs12 ml12 mb10" @click="tuihuo(datas)">
+							退货
+						</view>
+						<view v-if="datas.type==10" class="fu fu1 flex aic ju_c fs12 dai fs12 ml12 mb10" @click="tuihuoxx(datas)">
+							提交退货信息
 						</view>
 						
 					</view>
@@ -116,7 +132,9 @@
 		data() {
 			return {
 				id: '',
-				datas:''
+				datas:'',
+				tk_wl:'',
+				tk_wldh:''
 			}
 		},
 		computed: {
@@ -271,7 +289,225 @@
 				
 			
 			},
-			
+			tuikuan(item) {
+				uni.showModal({
+					title: '提示',
+					content: '确定申请退款吗',
+					success: function(res) {
+						if (res.confirm) {
+							var jkurl='/order/refund'
+							var data={
+								code:item.code,
+								type:1,
+								content:'申请退款'
+							}
+							if (that.btn_kg == 1) {
+								return
+							}
+							that.btn_kg = 1
+							service.P_post(jkurl, data).then(res => {
+								console.log(res)
+								if (res.code == 1) {
+									// that.$refs.htmlLoading.htmlReset_fuc(0)
+									var datas = res.data
+									console.log(typeof datas)
+							
+									if (typeof datas == 'string') {
+										datas = JSON.parse(datas)
+									}
+									uni.showToast({
+										title: '申请提交成功，请耐心等待后台审核',
+										icon: 'none',
+									});
+									setTimeout(function() {
+										that.btn_kg = 0
+										that.getdata()
+									}, 1000)
+							
+								} else {
+									
+										that.btn_kg = 0
+									// that.$refs.htmlLoading.htmlReset_fuc(1)
+									if (res.msg) {
+										uni.showToast({
+											icon: 'none',
+											title: res.msg
+										})
+									} else {
+										uni.showToast({
+											icon: 'none',
+											title: '获取失败'
+										})
+									}
+								}
+							}).catch(e => {
+								that.btn_kg = 0
+							
+								// that.$refs.htmlLoading.htmlReset_fuc(1)
+								console.log(e)
+								uni.showToast({
+									icon: 'none',
+									title: '系统错误'
+								})
+							})
+							
+						} else if (res.cancel) {
+							// uni.showToast({
+							// 	title: '取消订单失败',
+							// 	icon: 'none',
+							// });
+						}
+					}
+				});
+			},
+			tuihuo(item) {
+				uni.showModal({
+					title: '提示',
+					content: '确定申请退货吗',
+					success: function(res) {
+						if (res.confirm) {
+							var jkurl='/order/refund'
+							var data={
+								code:item.code,
+								type:2,
+								content:'申请退货'
+							}
+							if (that.btn_kg == 1) {
+								return
+							}
+							that.btn_kg = 1
+							service.P_post(jkurl, data).then(res => {
+								console.log(res)
+								if (res.code == 1) {
+									// that.$refs.htmlLoading.htmlReset_fuc(0)
+									var datas = res.data
+									console.log(typeof datas)
+							
+									if (typeof datas == 'string') {
+										datas = JSON.parse(datas)
+									}
+									uni.showToast({
+										title: '申请提交成功，请耐心等待后台审核',
+										icon: 'none',
+									});
+									setTimeout(function() {
+										that.btn_kg = 0
+										that.getdata()
+									}, 1000)
+							
+								} else {
+									
+										that.btn_kg = 0
+									// that.$refs.htmlLoading.htmlReset_fuc(1)
+									if (res.msg) {
+										uni.showToast({
+											icon: 'none',
+											title: res.msg
+										})
+									} else {
+										uni.showToast({
+											icon: 'none',
+											title: '获取失败'
+										})
+									}
+								}
+							}).catch(e => {
+								that.btn_kg = 0
+							
+								// that.$refs.htmlLoading.htmlReset_fuc(1)
+								console.log(e)
+								uni.showToast({
+									icon: 'none',
+									title: '系统错误'
+								})
+							})
+							
+						} else if (res.cancel) {
+							// uni.showToast({
+							// 	title: '取消订单失败',
+							// 	icon: 'none',
+							// });
+						}
+					}
+				});
+			},
+			tuihuoxx(item){
+				var jkurl='/order/re_goods'
+				if(!that.tk_wl){
+					uni.showToast({
+						icon:'none',
+						title:'请输入退款快递公司'
+					})
+					return
+				}
+				if(!that.tk_wldh){
+					uni.showToast({
+						icon:'none',
+						title:'请输入退款快递单号'
+					})
+					return
+				}
+				var data={
+					code:item.code,
+					tui_company:that.tk_wl,
+					tui_code:that.tk_wldh,
+				}
+				if (that.btn_kg == 1) {
+					return
+				}
+				that.btn_kg = 1
+				service.P_post(jkurl, data).then(res => {
+					console.log(res)
+					if (res.code == 1) {
+						// that.$refs.htmlLoading.htmlReset_fuc(0)
+						var datas = res.data
+						console.log(typeof datas)
+				
+						if (typeof datas == 'string') {
+							datas = JSON.parse(datas)
+						}
+						uni.showToast({
+							title: '提交成功',
+							icon: 'none',
+						});
+						setTimeout(function() {
+							that.btn_kg = 0
+							that.getdata()
+						}, 1000)
+						// setTimeout(function(){
+						// that.btn_kg = 0
+						// 	that.onRetry()
+						// },1000)
+				
+					} else {
+						
+							that.btn_kg = 0
+						// that.$refs.htmlLoading.htmlReset_fuc(1)
+						if (res.msg) {
+							uni.showToast({
+								icon: 'none',
+								title: res.msg
+							})
+						} else {
+							uni.showToast({
+								icon: 'none',
+								title: '获取失败'
+							})
+						}
+					}
+				}).catch(e => {
+					that.btn_kg = 0
+				
+					// that.$refs.htmlLoading.htmlReset_fuc(1)
+					console.log(e)
+					uni.showToast({
+						icon: 'none',
+						title: '系统错误'
+					})
+				})
+				
+							
+			},
 			pay(){
 				if(that.btnkg==1){
 					return
@@ -390,6 +626,18 @@
 							that.title = '交易成功'
 						} else if (datas.type == 6) {
 							that.title = '订单已取消'
+						} else if (datas.type == 7) {
+							that.title = '待退款'
+						}else if (datas.type == 8) {
+							that.title = '已退款'
+						}else if (datas.type == 9) {
+							that.title = '待退货'
+						}else if (datas.type == 10) {
+							that.title = '同意退货'
+						}else if (datas.type == 11) {
+							that.title = '退货中'
+						}else if (datas.type == 12) {
+							that.title = '已退货'
 						}
 						
 						
@@ -452,17 +700,23 @@
 	}
 
 	.fu {
-		width: 178upx;
+		max-width: 160upx;
+		min-width: 90upx;
 		height: 60upx;
 		border: 1px solid #EB4C50;
 		border-radius: 30upx;
+		margin: 6upx;
+		padding: 0 12upx;
 	}
 
 	.quxiao {
-		width: 178rpx;
+		max-width: 160upx;
+		min-width: 90upx;
 		height: 60rpx;
 		border: 1px solid #666666;
 		border-radius: 30rpx;
+		margin: 6upx;
+		padding: 0 12upx;
 	}
 
 	.fun {
@@ -479,7 +733,7 @@
 		width: 100%;
 		position: fixed;
 		padding-top: 25rpx;
-		
+		background: #fff;
 		bottom: 0;
 		z-index: 999;
 		padding-bottom: 0;
@@ -525,5 +779,16 @@
 		width: 300upx;
 		height: 40upx;
 		line-height: 40upx;
+	}
+	.tk_wl{
+		width: 100%;
+		height: 100upx;
+		box-sizing: border-box;
+		padding: 0 12upx;
+		font-size: 26upx;
+		border-bottom: 1px solid #ddd;
+	}
+	.fu1{
+		max-width: 180upx;
 	}
 </style>

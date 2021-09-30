@@ -1,11 +1,13 @@
 <template>
 	<view class="content">
-		<view class="harder flex justify-center align-items-center  pl10 pr10">
-			<view class="fuwu flex-1 flex" :class="currentIndex== index?'active':''" v-for="(item,index) in title"
-				:key="index" @click="bian(index)">
-				{{item.ti}}
-			</view>
-		</view>
+		<scroll-view scroll-x class="scroll_x harder pl10 pr10">
+			<!-- <view class=" flex justify-center align-items-center  "> -->
+				<view class="fuwu" :class="currentIndex== index?'active':''" v-for="(item,index) in title"
+					:key="index" @click="bian(index)">
+					{{item.ti}}
+				</view>
+			<!-- </view> -->
+		</scroll-view>
 		<view class="harder" style="position: relative;z-index: 1;opacity: 0;"></view>
 		<view class=" pl15 pr15 pt15 ">
 			<view class="shuju pl10 pr10 pb15 pt10 mb12" v-for="(item,index) in datas" :key="index">
@@ -44,26 +46,38 @@
 						<text class="fs11 dai pl3">￥</text>
 						<text class="fs20 dai ">{{item.total}}</text>
 					</view>
-					<view class="flex">
+					<view class="flex btn_box">
 						<view  v-if="item.type==1" class="quxiao flex align-items-center justify-center fs12 " @click="quxiao(item)">
 							取消订单
 						</view>
-						<view  v-if="item.type==1" class="fu flex align-items-center justify-center fs12 dai fs12 ml12"
+						<view  v-if="item.type==1" class="fu flex align-items-center justify-center fs12 dai fs12 "
 							@click='jump' :data-url=" '../Successful_trade/Successful_trade?code='+item.code"
 							:data-shifou='true'>
 							付款
 						</view>
-						<view  v-if="item.type>2&&item.type!= 6" class="quxiao flex align-items-center justify-center fs12 " @click='jump'
+						<view  v-if="item.type>2&&item.type<6" class="quxiao flex align-items-center justify-center fs12 " @click='jump'
 							:data-url=" '../order_wuliu/order_wuliu?code='+item.code" :data-shifou='true'>
-							查看物流
+							物流
 						</view>
-						<view v-if="item.type==3" class="fu flex align-items-center justify-center fs12 dai fs12 ml12"
+						<view v-if="item.type==3" class="fu flex align-items-center justify-center fs12 dai fs12 "
 							@click="shouhuo(item)">
-							确认收货
+							收货
 						</view>
-						<view v-if="item.type==5" class="fu flex align-items-center justify-center fs12 dai fs12 ml12" 
+						<view v-if="item.type==5" class="fu flex align-items-center justify-center fs12 dai fs12 " 
 							@click='jump' :data-url=" '../Successful_trade/Successful_trade?code='+item.code">
 							评价
+						</view>
+						<view v-if="item.type==2" class="fu flex align-items-center justify-center fs12 dai fs12 " 
+							@click='jump' :data-url=" '../Successful_trade/Successful_trade?code='+item.code">
+							退款
+						</view>
+						<view v-if="item.type==5" class="fu flex align-items-center justify-center fs12 dai fs12 " 
+							@click='jump' :data-url=" '../Successful_trade/Successful_trade?code='+item.code">
+							退货
+						</view>
+						<view v-if="item.type==10" class="fu flex align-items-center justify-center fs12 dai fs12 " 
+							@click='jump' :data-url=" '../Successful_trade/Successful_trade?code='+item.code">
+							退货信息
 						</view>
 					</view>
 				</view>
@@ -108,6 +122,30 @@
 						ti: '已完成',
 						id: 5
 					},
+					{
+						ti: '待退款',
+						id: 7
+					},
+					{
+						ti: '已退款',
+						id: 8
+					},
+					{
+						ti: '待退货',
+						id: 9
+					},
+					{
+						ti: '同意退货',
+						id: 10
+					},
+					{
+						ti: '退货中',
+						id: 11
+					},
+					{
+						ti: '已退货',
+						id: 12
+					},
 				],
 
 				currentIndex: 0,
@@ -115,8 +153,8 @@
 				status: 2,
 				datas:[],
 				page:1,
-				data_last:false
-				
+				data_last:false,
+				shownum:0
 			}
 		},
 		computed: {
@@ -135,7 +173,12 @@
 			that.index = option.index
 			that.onRetry()
 		},
-		
+		onShow() {
+			if(that.shownum>0){
+					that.onRetry()
+			}
+			that.shownum++
+		},
 		onPullDownRefresh() {
 			that.onRetry()
 		},
@@ -375,17 +418,21 @@
 
 <style>
 	.fu {
-		width: 178upx;
+		min-width: 90rpx;
 		height: 60upx;
 		border: 1px solid #EB4C50;
 		border-radius: 30upx;
+		margin: 6upx;
+		padding: 0 12upx;
 	}
 
 	.quxiao {
-		width: 178rpx;
+		min-width: 90rpx;
 		height: 60rpx;
 		border: 1px solid #666666;
 		border-radius: 30rpx;
+		margin: 6upx;
+		padding: 0 12upx;
 	}
 
 	.img {
@@ -448,6 +495,7 @@
 	}
 
 	.fuwu {
+		display: inline-flex;
 		text-align: center;
 		font-size: 30rpx;
 		font-family: PingFang;
@@ -456,6 +504,7 @@
 		align-items: center;
 		flex-direction: column;
 		color: #000;
+		padding: 0 10upx;
 	}
 
 
@@ -469,6 +518,7 @@
 		left: 0;
 		right: 0;
 		z-index: 900;
+		box-sizing: border-box;
 	}
 	.order_name{
 		font-size: 22upx;
@@ -476,5 +526,9 @@
 		width: 300upx;
 		height: 40upx;
 		line-height: 40upx;
+	}
+	.btn_box{
+		max-width: 50%;
+		flex-wrap: wrap;
 	}
 </style>

@@ -24,7 +24,7 @@
 						
 					</view>
 					<view class="price dis_flex aic  ju_b pt10">
-						{{shuju.status==1?'待审核':shuju.status==2?'预约成功':'预约失败'}}
+						{{shuju.status==1?'待审核':shuju.status==2?'预约成功':shuju.status==3?'预约失败':shuju.status==4?'待退款':'已退款'}}
 						
 					</view>
 				</view>
@@ -34,7 +34,7 @@
 				<view class="dis_flex ju_b aic">
 					<view class="xxtitstyle">订单状态</view>
 					<view class="flex_1 tar int_moren">
-						{{shuju.status==1?'待审核':shuju.status==2?'预约成功':'预约失败'}}
+						{{shuju.status==1?'待审核':shuju.status==2?'预约成功':shuju.status==3?'预约失败':shuju.status==4?'待退款':'已退款'}}
 					</view>
 					
 				</view>
@@ -104,7 +104,22 @@
 					<text> {{arr.content}}</text>
 				</view>
 			</view>
-			
+			<view  v-if="shuju.status==2" class="fun fixed bottom">
+				<view class="flex flex-right  pr15 ">
+					
+					<view class="fu flex aic ju_c fs12 dai fs12 ml12 mb10" @click="tuikuan(shuju)">
+						申请退款
+					</view>
+					
+				</view>
+			</view>
+			<view  v-if="shuju.status==2" class="fun  bottom" style="opacity: 0;position: relative;">
+				<view class="flex flex-right  pr15 ">
+					
+					<view class="fu flex aic ju_c fs12 dai fs12 ml12 mb10"></view>
+					
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -167,6 +182,77 @@
 		},
 		methods: {
 			...mapMutations(['logout', 'login']),
+			tuikuan(item){
+				///order/activity_refund
+				uni.showModal({
+					title: '提示',
+					content: '确定要申请退款吗',
+					success: function(res) {
+						if (res.confirm) {
+							var jkurl='/order/activity_refund'
+							var data={
+								code:item.code,
+								type:1,
+							}
+							if (that.btn_kg == 1) {
+								return
+							}
+							that.btn_kg = 1
+							service.P_post(jkurl, data).then(res => {
+								console.log(res)
+								if (res.code == 1) {
+									// that.$refs.htmlLoading.htmlReset_fuc(0)
+									var datas = res.data
+									console.log(typeof datas)
+							
+									if (typeof datas == 'string') {
+										datas = JSON.parse(datas)
+									}
+									uni.showToast({
+										title: '退款申请已提交，请耐心等待审核',
+										icon: 'none',
+									});
+									setTimeout(function() {
+										that.btn_kg = 0
+										that.getdatas()
+									}, 1000)
+							
+								} else {
+									
+										that.btn_kg = 0
+									// that.$refs.htmlLoading.htmlReset_fuc(1)
+									if (res.msg) {
+										uni.showToast({
+											icon: 'none',
+											title: res.msg
+										})
+									} else {
+										uni.showToast({
+											icon: 'none',
+											title: '获取失败'
+										})
+									}
+								}
+							}).catch(e => {
+								that.btn_kg = 0
+							
+								// that.$refs.htmlLoading.htmlReset_fuc(1)
+								console.log(e)
+								uni.showToast({
+									icon: 'none',
+									title: '系统错误'
+								})
+							})
+							
+						} else if (res.cancel) {
+							// uni.showToast({
+							// 	title: '取消订单失败',
+							// 	icon: 'none',
+							// });
+						}
+					}
+				});
+			},
 			getimg_fuc(img) {
 				return api.getimg(img)
 			},
@@ -209,7 +295,7 @@
 				})
 			},
 			
-			 getDate(type) {
+			getDate(type) {
 				const date = new Date();
 				let year = date.getFullYear();
 				let month = date.getMonth() + 1;
@@ -451,5 +537,42 @@
 		font-weight: 400;
 		color: #333333;
 	}
+	.fun {
+		/* height: 130rpx;
+		box-shadow: 0px -10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+		width: 100%;
+		position: fixed;
+		bottom: 0;
+		z-index: 999;
+		padding-bottom: 0;
+		padding-bottom: constant(safe-area-inset-bottom);
+		padding-bottom: env(safe-area-inset-bottom); */
+		
+		width: 100%;
+		position: fixed;
+		padding-top: 25rpx;
+		
+		bottom: 0;
+		z-index: 999;
+		padding-right: 30upx;
+		padding-bottom: 0;
+		padding-bottom: constant(safe-area-inset-bottom);
+		padding-bottom: env(safe-area-inset-bottom);
+		box-shadow: 0px -10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+		
+	}
 	
+	.fu {
+		width: 178upx;
+		height: 60upx;
+		border: 1px solid #EB4C50;
+		border-radius: 30upx;
+	}
+	
+	.quxiao {
+		width: 178rpx;
+		height: 60rpx;
+		border: 1px solid #666666;
+		border-radius: 30rpx;
+	}
 </style>

@@ -109,15 +109,16 @@ var render = function() {
   var m9 = _vm.getimg("/static_xcx/daifah.png")
   var m10 = _vm.getimg("/static_xcx/daiquh.png")
   var m11 = _vm.getimg("/static_xcx/yiwancheng.png")
-  var m12 = _vm.getimg("/static_xcx/fanh.png")
-  var m13 = _vm.getimg("/static_xcx/kefu.png")
-  var m14 = _vm.getimg("/static_xcx/fanh.png")
-  var m15 = _vm.getimg("/static_xcx/women.png")
-  var m16 = _vm.getimg("/static_xcx/fanh.png")
-  var m17 = _vm.getimg("/static_xcx/yinsi.png")
-  var m18 = _vm.getimg("/static_xcx/fanh.png")
-  var m19 = _vm.getimg("/static_xcx/xieyi.png")
-  var m20 = _vm.getimg("/static_xcx/fanh.png")
+  var m12 = _vm.getimg("/static_xcx/tuihuanh.png")
+  var m13 = _vm.getimg("/static_xcx/fanh.png")
+  var m14 = _vm.getimg("/static_xcx/kefu.png")
+  var m15 = _vm.getimg("/static_xcx/fanh.png")
+  var m16 = _vm.getimg("/static_xcx/women.png")
+  var m17 = _vm.getimg("/static_xcx/fanh.png")
+  var m18 = _vm.getimg("/static_xcx/yinsi.png")
+  var m19 = _vm.getimg("/static_xcx/fanh.png")
+  var m20 = _vm.getimg("/static_xcx/xieyi.png")
+  var m21 = _vm.getimg("/static_xcx/fanh.png")
   _vm.$mp.data = Object.assign(
     {},
     {
@@ -142,7 +143,8 @@ var render = function() {
         m17: m17,
         m18: m18,
         m19: m19,
-        m20: m20
+        m20: m20,
+        m21: m21
       }
     }
   )
@@ -180,6 +182,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
 
 
 

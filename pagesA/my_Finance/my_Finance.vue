@@ -44,7 +44,9 @@
 		onPullDownRefresh() {
 			that.onRetry()
 		},
+		
 		onReachBottom() {
+			console.log('触底')
 			that.getdata()
 		},
 		methods: {
@@ -115,7 +117,7 @@
 						}
 					}
 				}).catch(e => {
-			
+					that.btn_kg=0
 					that.$refs.htmlLoading.htmlReset_fuc(1)
 					console.log(e)
 					uni.showToast({
@@ -157,6 +159,5 @@
 		height: 100%;
 		margin: 0;
 		padding: 0;
-		overflow-x: hidden;
 	}
 </style>

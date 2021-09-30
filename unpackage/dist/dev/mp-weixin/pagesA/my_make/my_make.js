@@ -217,7 +217,15 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
 
       {
         ti: '预约失败',
-        id: 3 }],
+        id: 3 },
+
+      {
+        ti: '待退款',
+        id: 4 },
+
+      {
+        ti: '已退款',
+        id: 5 }],
 
 
 
@@ -232,7 +240,8 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
       show: false,
 
       page: 1,
-      data_last: false };
+      data_last: false,
+      shownum: 0 };
 
   },
   computed: _objectSpread({},
@@ -241,6 +250,12 @@ var _vuex = __webpack_require__(/*! vuex */ 10);function _interopRequireDefault(
   onLoad: function onLoad() {
     that = this;
     that.onRetry();
+  },
+  onShow: function onShow() {
+    if (that.shownum > 0) {
+      that.onRetry();
+    }
+    that.shownum++;
   },
   onPullDownRefresh: function onPullDownRefresh() {
     that.onRetry();

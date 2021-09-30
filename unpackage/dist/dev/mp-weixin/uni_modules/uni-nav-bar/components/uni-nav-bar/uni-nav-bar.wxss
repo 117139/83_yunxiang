@@ -125,8 +125,7 @@
   right: 0;
 }
 .uni-navbar--shadow.data-v-6bda1a90 {
-  -webkit-box-shadow: 0 1px 6px #ccc;
-          box-shadow: 0 1px 6px #ccc;
+  box-shadow: 0 1px 6px #ccc;
 }
 .uni-navbar--border.data-v-6bda1a90 {
   border-bottom-width: 1rpx;

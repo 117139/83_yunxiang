@@ -46,8 +46,7 @@
 }
 .mc_txts {
 	margin-top: 20rpx;
-	-webkit-box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
-	        box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+	box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
 	border-radius: 8rpx;
 	position: relative;
 	padding-bottom: 20rpx;
@@ -355,8 +354,7 @@
   height: 540rpx;
   position: relative;
   overflow: hidden;
-  -webkit-box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
-          box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+  box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
 }
 .calendar-wrapper .content .days.data-v-1d2b582a {
   -webkit-transition: top 0.3s;

@@ -231,6 +231,92 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  /* 数量加减 */
 .shoppingNumber.data-v-b364656a {
  	width: 200rpx;
@@ -289,8 +375,7 @@
 	margin-top: 26rpx;
 	padding: 0 19rpx;
 	min-height: 255rpx;
-	-webkit-box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
-	        box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+	box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
 	border-radius: 8rpx;
 }
 .xxbox>view.data-v-b364656a{
@@ -344,8 +429,7 @@
 	padding-bottom: 0;
 	padding-bottom: constant(safe-area-inset-bottom);
 	padding-bottom: env(safe-area-inset-bottom);
-	-webkit-box-shadow: 0rpx -10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
-	        box-shadow: 0rpx -10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+	box-shadow: 0rpx -10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
 	background-color: #FFFFFF;
 }
 .okbtn.data-v-b364656a{
@@ -398,8 +482,7 @@
 	padding: 30rpx 19rpx;
 	width: 100%;
 	background: #FFFFFF;
-	-webkit-box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
-	        box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
+	box-shadow: 0rpx 10rpx 19rpx 3rpx rgba(153, 153, 153, 0.08);
 	border-radius: 8rpx;
 	margin-top: 26rpx;
 }
@@ -450,5 +533,39 @@
 	font-weight: 400;
 	color: #333333;
 }
-
+.fun.data-v-b364656a {
+	/* height: 130rpx;
+	box-shadow: 0px -10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	z-index: 999;
+	padding-bottom: 0;
+	padding-bottom: constant(safe-area-inset-bottom);
+	padding-bottom: env(safe-area-inset-bottom); */
+	
+	width: 100%;
+	position: fixed;
+	padding-top: 25rpx;
+	
+	bottom: 0;
+	z-index: 999;
+	padding-right: 30rpx;
+	padding-bottom: 0;
+	padding-bottom: constant(safe-area-inset-bottom);
+	padding-bottom: env(safe-area-inset-bottom);
+	box-shadow: 0px -10rpx 19rpx 3px rgba(153, 153, 153, 0.08);
+}
+.fu.data-v-b364656a {
+	width: 178rpx;
+	height: 60rpx;
+	border: 1px solid #EB4C50;
+	border-radius: 30rpx;
+}
+.quxiao.data-v-b364656a {
+	width: 178rpx;
+	height: 60rpx;
+	border: 1px solid #666666;
+	border-radius: 30rpx;
+}
 
