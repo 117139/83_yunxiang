@@ -8,7 +8,9 @@ const STATE_KEY = 'STATE_KEY';
 // const imgurl = 'https://datixcx.com.aa.800123456.top/';
 // const imgurl = 'http://192.168.129.246/';
 const map_key = "7FEBZ-WLWK2-PMGUE-C4BFT-EKXB6-BFFNR"
-const imgurl = "https://yunxiangziran.com.a.800123456.vip/"
+// const imgurl = "https://yunxiangziran.com.a.800123456.vip/"
+const imgurl = "https://yunjoynature.com.800123456.vip"
+
 const IPurl = imgurl + 'api/'
 /**
  * 请求头
